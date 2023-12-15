@@ -37,7 +37,7 @@ return require('packer').startup(function(use)
     use {"williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim"}
     use('nvimdev/lspsaga.nvim')
     use('neovim/nvim-lspconfig')
-    -- use('MunifTanjim/prettier.nvim')
+
     use('sbdchd/neoformat')
     use('m4xshen/autoclose.nvim')
     use('romainl/vim-cool')
