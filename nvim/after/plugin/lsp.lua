@@ -63,6 +63,8 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lspconfig = require('lspconfig')
 
+lspconfig.biome.setup {}
+
 -- Configure rust_analyzer language server
 lspconfig.rust_analyzer.setup({capabilities = capabilities})
 
