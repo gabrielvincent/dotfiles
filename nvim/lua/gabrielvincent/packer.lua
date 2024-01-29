@@ -11,7 +11,13 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim',
         tag = '0.1.3',
         -- or                            , branch = '0.1.x',
-        requires = {{'nvim-lua/plenary.nvim'}}
+        requires = {
+            {'nvim-lua/plenary.nvim'},
+            {"nvim-telescope/telescope-live-grep-args.nvim"}
+        },
+        config = function()
+            require("telescope").load_extension("live_grep_args")
+        end
     }
     use {"folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {}}
     use('nvim-treesitter/nvim-treesitter')
@@ -37,7 +43,7 @@ return require('packer').startup(function(use)
     use {"williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim"}
     use('nvimdev/lspsaga.nvim')
     use('neovim/nvim-lspconfig')
-
+    use('MunifTanjim/prettier.nvim')
     use('sbdchd/neoformat')
     use('m4xshen/autoclose.nvim')
     use('romainl/vim-cool')

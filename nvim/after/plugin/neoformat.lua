@@ -14,6 +14,8 @@ vim.keymap.set("n", "<leader>f", function()
 
     if extension == 'prisma' then
         vim.cmd("silent !npx prisma format")
+    elseif extension == 'liquid' then
+        vim.cmd("silent !npx prettier --write %")
     else
         vim.cmd("Neoformat")
     end
@@ -29,3 +31,4 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     command = 'silent! EslintFixAll',
     group = vim.api.nvim_create_augroup('MyAutocmdsJavaScripFormatting', {})
 })
+
