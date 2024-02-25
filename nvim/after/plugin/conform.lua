@@ -9,6 +9,7 @@ conform.setup({
 		json = { "prettierd" },
 		yaml = { "prettierd" },
 		html = { "prettierd" },
+		prisma = { "prettierd" },
 	},
 })
 
