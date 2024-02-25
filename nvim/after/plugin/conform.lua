@@ -7,6 +7,7 @@ conform.setup({
 		typescript = { "prettierd", "eslint_d" },
 		typescriptreact = { "prettierd", "eslint_d" },
 		json = { "prettierd" },
+		jsonc = { "prettierd" },
 		yaml = { "prettierd" },
 		html = { "prettierd" },
 		prisma = { "prettierd" },
