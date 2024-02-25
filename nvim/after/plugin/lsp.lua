@@ -170,3 +170,7 @@ lspconfig.eslint.setup({
 		".eslintrc.json"
 	),
 })
+
+lspconfig.prismals.setup({
+	capabilities = capabilities,
+})
