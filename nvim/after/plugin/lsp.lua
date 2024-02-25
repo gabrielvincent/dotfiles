@@ -174,3 +174,11 @@ lspconfig.eslint.setup({
 lspconfig.prismals.setup({
 	capabilities = capabilities,
 })
+
+lspconfig.jsonls.setup({
+	capabilities = capabilities,
+})
+
+lspconfig.html.setup({
+	capabilities = capabilities,
+})
