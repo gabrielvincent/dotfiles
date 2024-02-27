@@ -182,3 +182,7 @@ lspconfig.jsonls.setup({
 lspconfig.html.setup({
 	capabilities = capabilities,
 })
+
+lspconfig.pylsp.setup({
+	capabilities = capabilities,
+})
