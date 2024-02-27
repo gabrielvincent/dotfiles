@@ -11,7 +11,7 @@ conform.setup({
 		yaml = { "prettierd" },
 		html = { "prettierd" },
 		prisma = { "prettierd" },
-		python = { "blackd-client" },
+		python = { "black" },
 	},
 })
 
