@@ -186,3 +186,7 @@ lspconfig.html.setup({
 lspconfig.pylsp.setup({
 	capabilities = capabilities,
 })
+
+lspconfig.gopls.setup({
+	capabilities = capabilities,
+})
