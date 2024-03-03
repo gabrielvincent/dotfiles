@@ -17,6 +17,11 @@ conform.setup({
 	},
 })
 
+conform.formatters.golines = {
+	command = "golines",
+	args = { "-m", "80" },
+}
+
 vim.api.nvim_create_user_command("Format", function(args)
 	local range = nil
 	if args.count ~= -1 then
