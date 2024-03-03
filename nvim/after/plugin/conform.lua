@@ -12,7 +12,8 @@ conform.setup({
 		html = { "prettierd" },
 		prisma = { "prettierd" },
 		python = { "black" },
-		go = { "gofmt" },
+		go = { "golines" },
+		mod = { "golines" },
 	},
 })
 

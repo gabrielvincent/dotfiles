@@ -190,3 +190,7 @@ lspconfig.pylsp.setup({
 lspconfig.gopls.setup({
 	capabilities = capabilities,
 })
+
+lspconfig.htmx.setup({
+	capabilities = capabilities,
+})
