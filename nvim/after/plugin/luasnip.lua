@@ -6,18 +6,29 @@ local t = ls.text_node
 local i = ls.insert_node
 local f = ls.function_node
 
-ls.setup({update_events = {"TextChanged", "TextChangedI"}})
+ls.setup({ update_events = { "TextChanged", "TextChangedI" } })
 
-local function copy(args) return args[1] end
+local function copy(args)
+	return args[1]
+end
 
 local javascript_snippets = {
-    s("clog", fmt([[
+	s(
+		"clog",
+		fmt(
+			[[
     console.log(`--- {1}`, {2})
-    ]], {i(1), i(2)}))
+    ]],
+			{ i(1), i(2) }
+		)
+	),
 }
 
 local typescript_snippets = {
-    s("rfc", fmt([[
+	s(
+		"rfc",
+		fmt(
+			[[
       import * as React from 'react'
 
       type Props = {{}}
@@ -25,55 +36,100 @@ local typescript_snippets = {
       export function {1}({{}}: Props) {{
         return {2}
       }}
-    ]], {i(1, "ComponentName"), i(2, "...")})), s("rue", fmt([[
+    ]],
+			{ i(1, "ComponentName"), i(2, "...") }
+		)
+	),
+	s(
+		"rue",
+		fmt(
+			[[
     React.useEffect(() => {{
         {1}
     }}, [{2}])
-    ]], {i(1), i(2)})), s("rus", {
-        t("const ["), f(copy, {1}, "Will be appended to text from i(0)"), i(1),
-        t(", set_"), i(1), t("] = React.useState<"), i(2, "type"), t(">("),
-        i(3, "initial"), t(")"), i(0)
-    })
+    ]],
+			{ i(1), i(2) }
+		)
+	),
+	s("rus", {
+		t("const ["),
+		f(copy, { 1 }, "Will be appended to text from i(0)"),
+		i(1),
+		t(", set_"),
+		i(1),
+		t("] = React.useState<"),
+		i(2, "type"),
+		t(">("),
+		i(3, "initial"),
+		t(")"),
+		i(0),
+	}),
 }
 
-ls.add_snippets('javascript', javascript_snippets)
+local go_snippets = {
+	s(
+		"log",
+		fmt(
+			[[
+    log.Printf(`--- {1}`, {2})
+    ]],
+			{ i(1), i(2) }
+		)
+	),
+}
+
+ls.add_snippets("javascript", javascript_snippets)
 ls.add_snippets("typescript", javascript_snippets)
 ls.add_snippets("typescript", typescript_snippets)
 ls.add_snippets("typescriptreact", javascript_snippets)
-ls.add_snippets('typescriptreact', typescript_snippets)
+ls.add_snippets("typescriptreact", typescript_snippets)
+ls.add_snippets("go", go_snippets)
 
 local M = {}
 
 function M.expand_or_jump()
-    if ls.expand_or_jumpable() then ls.expand_or_jump() end
+	if ls.expand_or_jumpable() then
+		ls.expand_or_jump()
+	end
 end
 
-function M.jump_next() if ls.jumpable(1) then ls.jump(1) end end
+function M.jump_next()
+	if ls.jumpable(1) then
+		ls.jump(1)
+	end
+end
 
-function M.jump_prev() if ls.jumpable(-1) then ls.jump(-1) end end
+function M.jump_prev()
+	if ls.jumpable(-1) then
+		ls.jump(-1)
+	end
+end
 
-function M.change_choice() if ls.choice_active() then ls.change_choice(1) end end
+function M.change_choice()
+	if ls.choice_active() then
+		ls.change_choice(1)
+	end
+end
 
 function M.reload_package(package_name)
-    for module_name, _ in pairs(package.loaded) do
-        if string.find(module_name, '^' .. package_name) then
-            package.loaded[module_name] = nil
-            require(module_name)
-        end
-    end
+	for module_name, _ in pairs(package.loaded) do
+		if string.find(module_name, "^" .. package_name) then
+			package.loaded[module_name] = nil
+			require(module_name)
+		end
+	end
 end
 
 function M.refresh_snippets()
-    ls.cleanup()
-    M.reload_package('<update the module name here>')
+	ls.cleanup()
+	M.reload_package("<update the module name here>")
 end
 
-local mode = {'i', 's'}
-local normal = {'n'}
+local mode = { "i", "s" }
+local normal = { "n" }
 
-vim.keymap.set(mode, '<M-i>', M.expand_or_jump)
-vim.keymap.set(mode, '<M-n>', M.jump_next)
-vim.keymap.set(mode, '<M-p>', M.jump_prev)
-vim.keymap.set(mode, '<M-l>', M.change_choice)
-vim.keymap.set(normal, ',r', M.refresh_snippets)
-
+vim.keymap.set(mode, "<M-i>", M.expand_or_jump)
+vim.keymap.set(mode, "<M-n>", M.jump_next)
+vim.keymap.set(mode, "<M-p>", M.jump_prev)
+vim.keymap.set(mode, "<M-l>", M.change_choice)
+vim.keymap.set(normal, ",r", M.refresh_snippets)
