@@ -12,16 +12,18 @@ local function copy(args)
 	return args[1]
 end
 
-local javascript_snippets = {
-	s(
-		"clog",
-		fmt(
-			[[
+local js_clog_snippet = s(
+	"clog",
+	fmt(
+		[[
     console.log(`--- {1}`, {2})
     ]],
-			{ i(1), i(2) }
-		)
-	),
+		{ i(1), i(2) }
+	)
+)
+
+local javascript_snippets = {
+	js_clog_snippet,
 }
 
 local typescript_snippets = {
@@ -78,12 +80,30 @@ local go_snippets = {
 	),
 }
 
+local liquid_snippets = {
+	s(
+		"llog",
+		fmt(
+			[[
+    <script>console.log(`--- {1}: `, {{ {2} }})</script>
+    ]],
+			{ i(1), i(2) }
+		)
+	),
+}
+
+local html_snippets = {
+	js_clog_snippet,
+}
+
 ls.add_snippets("javascript", javascript_snippets)
 ls.add_snippets("typescript", javascript_snippets)
 ls.add_snippets("typescript", typescript_snippets)
 ls.add_snippets("typescriptreact", javascript_snippets)
 ls.add_snippets("typescriptreact", typescript_snippets)
 ls.add_snippets("go", go_snippets)
+ls.add_snippets("liquid", liquid_snippets)
+ls.add_snippets("html", html_snippets)
 
 local M = {}
 

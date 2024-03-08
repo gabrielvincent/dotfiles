@@ -137,6 +137,7 @@ lspconfig.tailwindcss.setup({
 		"typescriptreact",
 		"rust",
 		"svelte",
+		"templ",
 	},
 })
 
@@ -167,6 +168,7 @@ lspconfig.jsonls.setup({
 
 lspconfig.html.setup({
 	capabilities = capabilities,
+	filetypes = { "html", "templ" },
 })
 
 lspconfig.pylsp.setup({
@@ -178,5 +180,17 @@ lspconfig.gopls.setup({
 })
 
 lspconfig.htmx.setup({
+	capabilities = capabilities,
+	filetypes = { "html", "templ" },
+})
+
+lspconfig.theme_check.setup({
+	capabilities = capabilities,
+	cmd = { "/opt/homebrew/bin/theme-check" },
+	root_dir = require("lspconfig.util").root_pattern("config/settings_data.json"),
+})
+
+vim.filetype.add({ extension = { templ = "templ" } })
+lspconfig.templ.setup({
 	capabilities = capabilities,
 })

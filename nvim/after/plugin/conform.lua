@@ -13,8 +13,10 @@ conform.setup({
 		prisma = { "prettierd" },
 		python = { "black" },
 		go = { "golines" },
+		templ = { "templ" },
 		gotmpl = { "gopls" },
 		mod = { "golines" },
+		liquid = { "prettierd" },
 	},
 })
 
