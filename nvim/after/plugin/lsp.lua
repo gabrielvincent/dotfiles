@@ -171,6 +171,10 @@ lspconfig.html.setup({
 	filetypes = { "html", "templ" },
 })
 
+lspconfig.cssls.setup({
+	capabilities = capabilities,
+})
+
 lspconfig.pylsp.setup({
 	capabilities = capabilities,
 })

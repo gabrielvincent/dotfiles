@@ -10,6 +10,7 @@ conform.setup({
 		jsonc = { "prettierd" },
 		yaml = { "prettierd" },
 		html = { "prettierd" },
+		css = { "prettierd" },
 		prisma = { "prettierd" },
 		python = { "black" },
 		go = { "golines" },
