@@ -44,7 +44,7 @@ return require("packer").startup(function(use)
 	use("Exafunction/codeium.vim")
 	use("theprimeagen/harpoon")
 	use("tjdevries/stackmap.nvim")
-	use("HiPhish/rainbow-delimiters.nvim")
+	-- use("HiPhish/rainbow-delimiters.nvim")
 	use("nvim-treesitter/nvim-treesitter-context")
 	use("windwp/nvim-ts-autotag")
 	use("lewis6991/gitsigns.nvim")
@@ -67,7 +67,9 @@ return require("packer").startup(function(use)
 	use("echasnovski/mini.nvim")
 	use("nvim-pack/nvim-spectre")
 	use("folke/todo-comments.nvim")
+	use("RRethy/base16-nvim")
 
+	--
 	-- Local plugins
 	-- use("~/Code/nvim/plugins/slate.nvim")
 end)

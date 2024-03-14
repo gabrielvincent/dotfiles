@@ -1,4 +1,4 @@
--- This module contains a number of default definitions
+--[[ -- This module contains a number of default definitions
 local rainbow_delimiters = require("rainbow-delimiters")
 
 vim.g.rainbow_delimiters = {
@@ -16,4 +16,4 @@ vim.g.rainbow_delimiters = {
 		"RainbowDelimiterViolet",
 		"RainbowDelimiterCyan",
 	},
-}
+} ]]
