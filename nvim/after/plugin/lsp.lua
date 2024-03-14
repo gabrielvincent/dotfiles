@@ -45,6 +45,11 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "buffer" },
 	}),
+	snippet = {
+		expand = function(args)
+			require("luasnip").lsp_expand(args.body)
+		end,
+	},
 })
 
 local icons = {
@@ -196,5 +201,9 @@ lspconfig.theme_check.setup({
 
 vim.filetype.add({ extension = { templ = "templ" } })
 lspconfig.templ.setup({
+	capabilities = capabilities,
+})
+
+lspconfig.gleam.setup({
 	capabilities = capabilities,
 })

@@ -18,6 +18,7 @@ conform.setup({
 		gotmpl = { "gopls" },
 		mod = { "golines" },
 		liquid = { "prettierd" },
+		gleam = { "gleam" },
 	},
 })
 
