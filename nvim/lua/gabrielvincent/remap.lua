@@ -16,7 +16,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
@@ -31,15 +31,12 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
-vim.keymap.set("n", "<leader>s",
-               [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
-vim.keymap.set('i', '<C-BS>', '<C-w>', {noremap = true})
+vim.keymap.set("i", "<C-BS>", "<C-w>", { noremap = true })
 
-vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>",
-               {noremap = true, silent = true})
-vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>",
-               {noremap = true, silent = true})
+vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<M-CR>", "o<Esc>")
 vim.keymap.set("n", "<M-BS>", "O<Esc>")
@@ -52,6 +49,12 @@ vim.keymap.set("n", "<Up>", "<nop>")
 vim.keymap.set("n", "<Down>", "<nop>")
 vim.keymap.set("n", "<Left>", "<nop>")
 vim.keymap.set("n", "<Right>", "<nop>")
+
+-- Move between splits
+vim.keymap.set("n", "<M-h>", "<C-w>h")
+vim.keymap.set("n", "<M-j>", "<C-w>j")
+vim.keymap.set("n", "<M-k>", "<C-w>k")
+vim.keymap.set("n", "<M-l>", "<C-w>l")
 
 --[[ local function Term()
     local terminal_buffer_number = vim.fn.bufnr("term://")
