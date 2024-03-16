@@ -1,7 +1,7 @@
 local auto_dark_mode = require("auto-dark-mode")
 
-local DEFAULT_COLORSCHEME_LIGHT = "base16-grayscale-light"
-local DEFAULT_COLORSCHEME_DARK = "base16-grayscale-dark"
+local DEFAULT_COLORSCHEME_LIGHT = "catppuccin-latte" -- "base16-grayscale-light"
+local DEFAULT_COLORSCHEME_DARK = "catppuccin-mocha" -- "base16-grayscale-dark"
 local FUGITIVE_COLORSCHEME_LIGHT = "catppuccin-latte"
 local FUGITIVE_COLORSCHEME_DARK = "catppuccin-mocha"
 
@@ -19,12 +19,12 @@ local colorschemes = {
 }
 
 local function change_colorscheme()
-	local filetype = vim.bo.filetype
+	-- local filetype = vim.bo.filetype
 	local mode = "regular"
 
-	if filetype == "fugitive" then
-		mode = "fugitive"
-	end
+	-- if filetype == "fugitive" then
+	-- 	mode = "fugitive"
+	-- end
 
 	local colorscheme = colorschemes[theme][mode]
 

@@ -1,4 +1,4 @@
-vim.opt.nu = true
+vim.opt.nu = false
 vim.opt.relativenumber = true
 
 vim.opt.cursorline = true
@@ -33,7 +33,7 @@ vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
 
 vim.opt.list = true
-vim.opt.listchars:append({ lead = "·", trail = "·", tab = "··" })
+vim.opt.listchars:append({ lead = "·", trail = "·", tab = "· " })
 
 vim.api.nvim_exec(
 	[[
