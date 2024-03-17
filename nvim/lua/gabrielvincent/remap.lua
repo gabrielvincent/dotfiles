@@ -56,6 +56,25 @@ vim.keymap.set("n", "<M-j>", "<C-w>j")
 vim.keymap.set("n", "<M-k>", "<C-w>k")
 vim.keymap.set("n", "<M-l>", "<C-w>l")
 
+-- Leave terminal mode
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
+local function enter_term_mode()
+	vim.cmd("term")
+	vim.cmd("startinsert")
+end
+
+vim.api.nvim_create_user_command("VSplitTerm", function()
+	vim.cmd("vs")
+	enter_term_mode()
+end, { desc = "Open terminal window in window split vertically" })
+
+vim.api.nvim_create_user_command("SplitTerm", function()
+	vim.cmd("sp")
+	vim.api.nvim_command("wincmd j")
+	enter_term_mode()
+end, { desc = "Open terminal window in window split horizontally" })
+
 --[[ local function Term()
     local terminal_buffer_number = vim.fn.bufnr("term://")
     local terminal_window_number = vim.fn.bufwinnr("term://")

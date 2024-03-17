@@ -70,10 +70,10 @@ local typescript_snippets = {
 
 local go_snippets = {
 	s(
-		"log",
+		"print",
 		fmt(
 			[[
-    log.Printf(`--- {1}`, {2})
+    fmt.Println("--- {1}", {2})
     ]],
 			{ i(1), i(2) }
 		)
