@@ -67,6 +67,7 @@ return require("packer").startup(function(use)
 	use("nvim-pack/nvim-spectre")
 	use("folke/todo-comments.nvim")
 	use("RRethy/base16-nvim")
+	use("arakkkkk/kanban.nvim")
 	--
 	-- Local plugins
 	-- use("~/Code/nvim/plugins/slate.nvim")
