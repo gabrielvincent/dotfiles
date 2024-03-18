@@ -61,6 +61,7 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 local function enter_term_mode()
 	vim.cmd("term")
+	vim.cmd("set filetype=terminal")
 	vim.cmd("startinsert")
 end
 
@@ -74,6 +75,14 @@ vim.api.nvim_create_user_command("SplitTerm", function()
 	vim.api.nvim_command("wincmd j")
 	enter_term_mode()
 end, { desc = "Open terminal window in window split horizontally" })
+
+vim.api.nvim_create_autocmd("BufEnter", {
+	callback = function()
+		if vim.bo.filetype == "terminal" then
+			vim.cmd("startinsert")
+		end
+	end,
+})
 
 --[[ local function Term()
     local terminal_buffer_number = vim.fn.bufnr("term://")
