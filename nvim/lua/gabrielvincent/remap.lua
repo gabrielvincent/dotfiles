@@ -59,6 +59,14 @@ vim.keymap.set("n", "<M-l>", "<C-w>l")
 -- Leave terminal mode
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
+vim.api.nvim_create_autocmd("TermOpen", {
+	pattern = "*",
+	callback = function()
+		vim.cmd("set filetype=terminal")
+		vim.cmd("startinsert")
+	end,
+})
+
 local function enter_term_mode()
 	vim.cmd("term")
 	vim.cmd("set filetype=terminal")

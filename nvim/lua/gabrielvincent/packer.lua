@@ -1,4 +1,4 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vimpackep-z
+-- This file can be loaded by calling `lua require('plugins')` from your init.vimpackep-zpacker
 vim.keymap.set("n", "<C-h>", function()
 	ui.nav_file(1)
 end)
@@ -24,6 +24,12 @@ return require("packer").startup(function(use)
 	use({ "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} })
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("nvim-treesitter/nvim-treesitter")
+	use("nvim-treesitter/nvim-treesitter-context")
+	use({
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		after = "nvim-treesitter",
+		requires = "nvim-treesitter/nvim-treesitter",
+	})
 	use("mbbill/undotree")
 	use("theprimeagen/vim-be-good")
 	use("tpope/vim-fugitive")
@@ -42,9 +48,12 @@ return require("packer").startup(function(use)
 	use("m4xshen/autoclose.nvim")
 	use("romainl/vim-cool")
 	use("Exafunction/codeium.vim")
-	use("theprimeagen/harpoon")
+	use({
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 	use("tjdevries/stackmap.nvim")
-	use("nvim-treesitter/nvim-treesitter-context")
 	use("windwp/nvim-ts-autotag")
 	use("lewis6991/gitsigns.nvim")
 	use({
@@ -67,8 +76,7 @@ return require("packer").startup(function(use)
 	use("nvim-pack/nvim-spectre")
 	use("folke/todo-comments.nvim")
 	use("RRethy/base16-nvim")
-	use("arakkkkk/kanban.nvim")
-	--
+
 	-- Local plugins
 	-- use("~/Code/nvim/plugins/slate.nvim")
 end)

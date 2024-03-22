@@ -32,5 +32,32 @@ require("nvim-treesitter.configs").setup({
 	-- Configure autoclose of HTML and JSX tags
 	autoclose = { enable = true },
 
-	-- context_commentstring = {enable = true, enable_autocmd = false}
+	textobjects = {
+		select = {
+			enable = true,
+			lookahead = true,
+			keymaps = {
+				["al"] = "@loop.outer",
+				["il"] = "@loop.inner",
+				["ab"] = "@block.outer",
+				["ib"] = "@block.inner",
+				["ac"] = "@class.outer",
+				["ic"] = "@class.inner",
+				["af"] = "@function.outer",
+				["if"] = "@function.inner",
+				["ap"] = "@parameter.outer",
+				["ip"] = "@parameter.inner",
+				["ak"] = "@comment.outer",
+			},
+			-- selection_modes = {
+			-- 	["@parameter.outer"] = "v", -- charwise
+			-- 	["@function.outer"] = { "v", "V", "c", "d" }, -- charwise
+			-- 	["@class.outer"] = "<c-v>", -- blockwise
+			-- },
+		},
+	},
 })
+
+local function noisx(a, b, c)
+	print("hello")
+end
