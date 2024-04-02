@@ -9,8 +9,8 @@ cmp.setup({
 		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
 		["<C-j>"] = cmp.mapping.scroll_docs(-4),
 		["<C-k>"] = cmp.mapping.scroll_docs(4),
-		["<C-ENTER>"] = cmp.mapping.confirm({ select = true }),
-		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		["<C-s"] = cmp.mapping.confirm({ select = true }),
+		-- ["<CR>"] = cmp.mapping.confirm({ select = true }),
 		["<C-Space>"] = cmp.mapping.complete(),
 	}),
 	sources = cmp.config.sources({
@@ -145,7 +145,6 @@ lspconfig.jsonls.setup({
 
 lspconfig.html.setup({
 	capabilities = capabilities,
-	filetypes = { "html", "templ" },
 })
 
 lspconfig.cssls.setup({
@@ -177,5 +176,9 @@ lspconfig.templ.setup({
 })
 
 lspconfig.gleam.setup({
+	capabilities = capabilities,
+})
+
+lspconfig.elixirls.setup({
 	capabilities = capabilities,
 })

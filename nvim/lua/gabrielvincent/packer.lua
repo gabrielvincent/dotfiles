@@ -24,10 +24,14 @@ return require("packer").startup(function(use)
 	use({ "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} })
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("nvim-treesitter/nvim-treesitter")
-	use("nvim-treesitter/nvim-treesitter-context")
 	use({
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		after = "nvim-treesitter",
+		requires = "nvim-treesitter/nvim-treesitter",
+	})
+	use({
+		"nvim-treesitter/nvim-treesitter-context",
+		after = "nvim-treesitter/nvim-treesitter-textobjects",
 		requires = "nvim-treesitter/nvim-treesitter",
 	})
 	use("mbbill/undotree")
@@ -72,10 +76,11 @@ return require("packer").startup(function(use)
 	use("f-person/auto-dark-mode.nvim")
 	use("stevearc/oil.nvim")
 	use("stevearc/conform.nvim")
-	use("echasnovski/mini.nvim")
+	use("echasnovski/mini.nvim", { after = "nvim-treesitter-textobjects" })
 	use("nvim-pack/nvim-spectre")
 	use("folke/todo-comments.nvim")
 	use("RRethy/base16-nvim")
+	use("norcalli/nvim-colorizer.lua")
 
 	-- Local plugins
 	-- use("~/Code/nvim/plugins/slate.nvim")

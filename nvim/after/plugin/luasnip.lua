@@ -90,6 +90,66 @@ local liquid_snippets = {
 			{ i(1), i(2) }
 		)
 	),
+
+	s(
+		"section",
+		fmt(
+			[[
+    {{% schema %}}
+    {{
+        "name": "{}",
+        "class": "{}",
+        "settings": []
+    }}
+    {{% endschema %}}
+    ]],
+			{ i(1, "Section Name"), i(2, "section-class") }
+		)
+	),
+
+	s(
+		"if",
+		fmt(
+			[[
+    {% if (1) %}
+        (2)
+    {% endif %}
+    ]],
+			{
+				i(1, "condition"),
+				i(2, "..."),
+			},
+			{ delimiters = "()" }
+		)
+	),
+
+	s(
+		"ifinl",
+		fmt(
+			[[
+    {% if (1) %} (2) {% endif %}
+    ]],
+			{ i(1, "condition"), i(2, "...") },
+			{ delimiters = "()" }
+		)
+	),
+
+	s(
+		"for",
+		fmt(
+			[[
+    {% for () in () %}
+        ()
+    {% endfor %}
+    ]],
+			{
+				i(1, "item"),
+				i(2, "list"),
+				i(3, "..."),
+			},
+			{ delimiters = "()" }
+		)
+	),
 }
 
 local html_snippets = {

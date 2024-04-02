@@ -15,10 +15,10 @@ conform.setup({
 		python = { "black" },
 		go = { "golines" },
 		templ = { "templ" },
-		gotmpl = { "gopls" },
 		mod = { "golines" },
 		liquid = { "prettierd" },
 		gleam = { "gleam" },
+		markdown = { "prettierd" },
 	},
 })
 
@@ -36,7 +36,7 @@ vim.api.nvim_create_user_command("Format", function(args)
 			["end"] = { args.line2, end_line:len() },
 		}
 	end
-	require("conform").format({
+	conform.format({
 		async = false,
 		lsp_fallback = true,
 		range = range,
@@ -44,12 +44,12 @@ vim.api.nvim_create_user_command("Format", function(args)
 end, { range = true })
 
 vim.keymap.set("n", "<leader>f", function()
-	conform.format()
+	vim.cmd("Format")
 end)
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
-	callback = function(args)
-		require("conform").format({ bufnr = args.buf })
+	callback = function()
+		vim.cmd("Format")
 	end,
 })
