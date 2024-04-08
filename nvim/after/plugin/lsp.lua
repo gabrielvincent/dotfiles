@@ -1,6 +1,8 @@
 require("mason").setup({})
 require("mason-lspconfig").setup({})
 
+require("codeium").setup({})
+
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 cmp.setup({
@@ -15,7 +17,10 @@ cmp.setup({
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
+		{ name = "codeium" },
 		{ name = "buffer" },
+		{ name = "path" },
+		{ name = "luasnip" },
 	}),
 	snippet = {
 		expand = function(args)
@@ -180,5 +185,9 @@ lspconfig.gleam.setup({
 })
 
 lspconfig.elixirls.setup({
+	capabilities = capabilities,
+})
+
+lspconfig.svelte.setup({
 	capabilities = capabilities,
 })

@@ -23,22 +23,20 @@ return require("packer").startup(function(use)
 	})
 	use({ "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} })
 	use({ "catppuccin/nvim", as = "catppuccin" })
-	use("nvim-treesitter/nvim-treesitter")
 	use({
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		after = "nvim-treesitter",
-		requires = "nvim-treesitter/nvim-treesitter",
-	})
-	use({
-		"nvim-treesitter/nvim-treesitter-context",
-		after = "nvim-treesitter/nvim-treesitter-textobjects",
-		requires = "nvim-treesitter/nvim-treesitter",
+		"nvim-treesitter/nvim-treesitter",
+		requires = {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			"nvim-treesitter/nvim-treesitter-context",
+		},
 	})
 	use("mbbill/undotree")
 	use("theprimeagen/vim-be-good")
 	use("tpope/vim-fugitive")
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-path")
 	use({
 		"L3MON4D3/LuaSnip",
 		-- follow latest release.
@@ -51,7 +49,13 @@ return require("packer").startup(function(use)
 	use("neovim/nvim-lspconfig")
 	use("m4xshen/autoclose.nvim")
 	use("romainl/vim-cool")
-	use("Exafunction/codeium.vim")
+	use({
+		"Exafunction/codeium.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+		},
+	})
 	use({
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
@@ -81,6 +85,12 @@ return require("packer").startup(function(use)
 	use("folke/todo-comments.nvim")
 	use("RRethy/base16-nvim")
 	use("norcalli/nvim-colorizer.lua")
+	use({
+		"kwkarlwang/bufresize.nvim",
+		config = function()
+			require("bufresize").setup()
+		end,
+	})
 
 	-- Local plugins
 	-- use("~/Code/nvim/plugins/slate.nvim")

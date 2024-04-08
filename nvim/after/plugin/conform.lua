@@ -6,6 +6,7 @@ conform.setup({
 		javascriptreact = { "prettierd", "eslint_d" },
 		typescript = { "prettierd", "eslint_d" },
 		typescriptreact = { "prettierd", "eslint_d" },
+		svelte = { "prettierd" },
 		json = { "prettierd" },
 		jsonc = { "prettierd" },
 		yaml = { "prettierd" },
