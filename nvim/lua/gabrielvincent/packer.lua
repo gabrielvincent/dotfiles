@@ -58,20 +58,11 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"ThePrimeagen/harpoon",
-		branch = "harpoon2",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 	use("tjdevries/stackmap.nvim")
 	use("windwp/nvim-ts-autotag")
 	use("lewis6991/gitsigns.nvim")
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = {
-			"nvim-tree/nvim-web-devicons",
-			"ryanoasis/vim-devicons",
-			opt = true,
-		},
-	})
 	use("numtoStr/Comment.nvim")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
@@ -85,11 +76,18 @@ return require("packer").startup(function(use)
 	use("folke/todo-comments.nvim")
 	use("RRethy/base16-nvim")
 	use("norcalli/nvim-colorizer.lua")
+	use("kwkarlwang/bufresize.nvim")
 	use({
-		"kwkarlwang/bufresize.nvim",
-		config = function()
-			require("bufresize").setup()
-		end,
+		"akinsho/toggleterm.nvim",
+		tag = "*",
+	})
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = {
+			"nvim-tree/nvim-web-devicons",
+			"ryanoasis/vim-devicons",
+			opt = true,
+		},
 	})
 
 	-- Local plugins

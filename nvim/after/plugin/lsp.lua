@@ -125,7 +125,6 @@ lspconfig.tailwindcss.setup({
 
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
-	-- commands = { RenameFile = { rename_file, description = "Rename File" } },
 })
 
 lspconfig.eslint.setup({
@@ -178,6 +177,7 @@ lspconfig.theme_check.setup({
 vim.filetype.add({ extension = { templ = "templ" } })
 lspconfig.templ.setup({
 	capabilities = capabilities,
+	filetypes = { "templ" },
 })
 
 lspconfig.gleam.setup({

@@ -84,37 +84,10 @@ vim.api.nvim_create_user_command("SplitTerm", function()
 	enter_term_mode()
 end, { desc = "Open terminal window in window split horizontally" })
 
-vim.api.nvim_create_autocmd("BufEnter", {
-	callback = function()
-		if vim.bo.filetype == "terminal" then
-			vim.cmd("startinsert")
-		end
-	end,
-})
-
---[[ local function Term()
-    local terminal_buffer_number = vim.fn.bufnr("term://")
-    local terminal_window_number = vim.fn.bufwinnr("term://")
-    local window_count = vim.fn.winnr("$")
-
-    if terminal_window_number > 0 and window_count > 1 then
-        vim.fn.execute(terminal_window_number .. "wincmd c")
-    elseif terminal_buffer_number > 0 and terminal_buffer_number ~=
-        vim.fn.bufnr("%") then
-        vim.fn.execute("vert sb " .. terminal_buffer_number)
-    elseif terminal_buffer_number == vim.fn.bufnr("%") then
-        vim.fn.execute("bprevious | vert sb " .. terminal_buffer_number ..
-                           " | wincmd p")
-    else
-        vim.fn.execute("vsp term://zsh")
-    end
-
-    vim.cmd("startinsert")
-    vim.cmd("vertical resize 40")
-end
-
-vim.api.nvim_create_user_command("Term", Term, {desc = "Open terminal window"})
-
-vim.keymap.set("n", "<leader>t", vim.cmd.Term, {noremap = true, silent = true})
-vim.keymap.set("t", "<leader>t", function() vim.cmd("hide") end)
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>") ]]
+-- vim.api.nvim_create_autocmd("BufEnter", {
+-- 	callback = function()
+-- 		if vim.bo.filetype == "terminal" then
+-- 			vim.cmd("startinsert")
+-- 		end
+-- 	end,
+-- })
