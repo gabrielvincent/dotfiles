@@ -32,7 +32,7 @@ local function should_open_oil()
 	return buftype ~= "terminal" and buftype ~= "nowrite"
 end
 
-vim.keymap.set("n", "<leader>pv", function()
+vim.keymap.set("n", "-", function()
 	if should_open_oil() == false then
 		return
 	end
