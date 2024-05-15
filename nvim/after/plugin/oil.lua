@@ -22,7 +22,21 @@ oil.setup({
 	float = { padding = 8 },
 })
 
+local function should_open_oil()
+	-- Get the current buffer number
+	local bufnr = vim.api.nvim_get_current_buf()
+	-- Retrieve the 'buftype' option for the current buffer
+	local buftype = vim.api.nvim_buf_get_option(bufnr, "buftype")
+	print(buftype)
+	-- Check if the buftype is 'terminal'
+	return buftype ~= "terminal" and buftype ~= "nowrite"
+end
+
 vim.keymap.set("n", "<leader>pv", function()
+	if should_open_oil() == false then
+		return
+	end
+
 	local current_dir = oil.get_current_dir()
 	oil.open(current_dir)
 end)

@@ -11,8 +11,6 @@ cmp.setup({
 		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
 		["<C-j>"] = cmp.mapping.scroll_docs(-4),
 		["<C-k>"] = cmp.mapping.scroll_docs(4),
-		["<C-s"] = cmp.mapping.confirm({ select = true }),
-		-- ["<CR>"] = cmp.mapping.confirm({ select = true }),
 		["<C-Space>"] = cmp.mapping.complete(),
 	}),
 	sources = cmp.config.sources({
@@ -135,7 +133,10 @@ lspconfig.eslint.setup({
 		".eslintrc.cjs",
 		".eslintrc.yaml",
 		".eslintrc.yml",
-		".eslintrc.json"
+		".eslintrc.json",
+		"eslint.config.js",
+		"eslint.config.cjs",
+		"eslint.config.mjs"
 	),
 })
 
