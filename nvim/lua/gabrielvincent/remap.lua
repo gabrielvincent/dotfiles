@@ -83,11 +83,3 @@ vim.api.nvim_create_user_command("SplitTerm", function()
 	vim.api.nvim_command("wincmd j")
 	enter_term_mode()
 end, { desc = "Open terminal window in window split horizontally" })
-
--- vim.api.nvim_create_autocmd("BufEnter", {
--- 	callback = function()
--- 		if vim.bo.filetype == "terminal" then
--- 			vim.cmd("startinsert")
--- 		end
--- 	end,
--- })
