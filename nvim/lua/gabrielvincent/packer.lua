@@ -88,6 +88,10 @@ return require("packer").startup(function(use)
 			opt = true,
 		},
 	})
+	use({
+		"MysticalDevil/inlay-hints.nvim",
+		requires = { "neovim/nvim-lspconfig" },
+	})
 
 	-- Local plugins
 	-- use("~/Code/nvim/plugins/slate.nvim")

@@ -27,25 +27,32 @@ cmp.setup({
 	},
 })
 
-local icons = {
+local ICONS = {
 	diagnostics = { Error = " ", Warn = " ", Hint = " ", Info = " " },
 }
 
+local function get_diagnostic_prefix(severity)
+	local prefix_map = {
+		[vim.diagnostic.severity.ERROR] = ICONS.diagnostics.Error,
+		[vim.diagnostic.severity.WARN] = ICONS.diagnostics.Warn,
+		[vim.diagnostic.severity.INFO] = ICONS.diagnostics.Info,
+		[vim.diagnostic.severity.HINT] = ICONS.diagnostics.Hint,
+	}
+	return prefix_map[severity] or ""
+end
+
 vim.diagnostic.config({
 	underline = true,
-	virtual_text = true,
 	severity_sort = true,
-	signs = {
-		numhl = {
-			[vim.diagnostic.severity.ERROR] = icons.diagnostics.Error,
-			[vim.diagnostic.severity.WARN] = icons.diagnostics.Warn,
-			[vim.diagnostic.severity.INFO] = icons.diagnostics.Info,
-			[vim.diagnostic.severity.HINT] = icons.diagnostics.Hint,
-		},
+	signs = true,
+	virtual_text = {
+		prefix = function(diagnostic)
+			return get_diagnostic_prefix(diagnostic.severity)
+		end,
 	},
 })
 
-for type, icon in pairs(icons.diagnostics) do
+for type, icon in pairs(ICONS.diagnostics) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
@@ -58,7 +65,7 @@ lspconfig.rust_analyzer.setup({ capabilities = capabilities })
 
 -- Configure lua_ls language server
 lspconfig.lua_ls.setup({
-	settings = { Lua = { diagnostics = { globals = { "vim", "ui" } } } },
+	settings = { Lua = { hint = { enable = true }, diagnostics = { globals = { "vim", "ui" } } } },
 })
 
 lspconfig.tailwindcss.setup({
@@ -123,6 +130,32 @@ lspconfig.tailwindcss.setup({
 
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
+	settings = {
+		typescript = {
+			inlayHints = {
+				includeInlayParameterNameHints = "all",
+				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = true,
+				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = true,
+			},
+		},
+		javascript = {
+			inlayHints = {
+				includeInlayParameterNameHints = "all",
+				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = true,
+				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = true,
+			},
+		},
+	},
 })
 
 lspconfig.eslint.setup({
@@ -162,6 +195,17 @@ lspconfig.pylsp.setup({
 
 lspconfig.gopls.setup({
 	capabilities = capabilities,
+	settings = {
+		hints = {
+			rangeVariableTypes = true,
+			parameterNames = true,
+			constantValues = true,
+			assignVariableTypes = true,
+			compositeLiteralFields = true,
+			compositeLiteralTypes = true,
+			functionTypeParameters = true,
+		},
+	},
 })
 
 lspconfig.htmx.setup({
