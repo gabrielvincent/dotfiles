@@ -58,3 +58,56 @@ end, { expr = true, noremap = true })
 
 -- split windows separators
 vim.opt.laststatus = 3
+
+-- Customize SpellBad highlight to use an undercurl
+vim.o.spell = true
+vim.o.spelllang = "en"
+vim.api.nvim_set_hl(0, "SpellBad", {
+	sp = "Red", -- Color of the undercurl
+	undercurl = true, -- Enable undercurl
+})
+
+-- You can similarly set up other spelling-related highlights if needed
+vim.api.nvim_set_hl(0, "SpellCap", {
+	sp = "Yellow",
+	undercurl = true,
+})
+
+vim.api.nvim_set_hl(0, "SpellRare", {
+	sp = "Cyan",
+	undercurl = true,
+})
+
+vim.api.nvim_set_hl(0, "SpellLocal", {
+	sp = "Blue",
+	undercurl = true,
+})
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*", -- Apply to all colorschemes
+	callback = function()
+		vim.cmd([[
+            hi DiagnosticUnderlineError guisp=#FF0000 gui=undercurl
+            hi DiagnosticUnderlineWarn guisp=#FFFF00 gui=undercurl
+            hi DiagnosticUnderlineInfo guisp=#ADD8E6 gui=undercurl
+            hi DiagnosticUnderlineHint guisp=#90EE90 gui=undercurl
+        ]])
+	end,
+})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	pattern = "*", -- Apply to all files
+	callback = function()
+		print("Applying diagnostic undercurl highlights") -- Debug print
+		vim.cmd([[
+            hi DiagnosticUnderlineError guisp=#FF0000 gui=undercurl
+            hi DiagnosticUnderlineWarn guisp=#FFFF00 gui=undercurl
+            hi DiagnosticUnderlineInfo guisp=#ADD8E6 gui=undercurl
+            hi DiagnosticUnderlineHint guisp=#90EE90 gui=undercurl
+        ]])
+		print("Diagnostic undercurl highlights applied") -- Debug print
+	end,
+})
+
+-- Trigger the autocmd manually once to apply the settings initially
+vim.cmd("doautocmd ColorScheme")
