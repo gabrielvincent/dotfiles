@@ -8,6 +8,8 @@ vim.keymap.set("n", "J", "mzJ`z")
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "{", "{zz")
+vim.keymap.set("n", "}", "}zz")
 vim.keymap.set("", "G", "Gzz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
@@ -19,7 +21,8 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
--- vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+-- delete without yank
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- This is going to get me cancelled
 -- vim.keymap.set("i", "<Tab>", "<Esc>")
@@ -43,6 +46,8 @@ vim.keymap.set("n", "<M-BS>", "O<Esc>")
 
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("i", "kj", "<Esc>")
+vim.keymap.set("i", "<C-u>", "<Esc>")
+vim.keymap.set("i", "<C-d>", "<Esc>")
 
 -- Disable arrow keys in normal mode
 vim.keymap.set("n", "<Up>", "<nop>")
@@ -51,10 +56,21 @@ vim.keymap.set("n", "<Left>", "<nop>")
 vim.keymap.set("n", "<Right>", "<nop>")
 
 -- Move between splits
+-- normal mode
 vim.keymap.set("n", "<M-h>", "<C-w>h")
 vim.keymap.set("n", "<M-j>", "<C-w>j")
 vim.keymap.set("n", "<M-k>", "<C-w>k")
 vim.keymap.set("n", "<M-l>", "<C-w>l")
+-- insert mode
+vim.keymap.set("i", "<M-h>", "<Esc><C-w>h")
+vim.keymap.set("i", "<M-j>", "<Esc><C-w>j")
+vim.keymap.set("i", "<M-k>", "<Esc><C-w>k")
+vim.keymap.set("i", "<M-l>", "<Esc><C-w>l")
+-- terminal mode
+vim.keymap.set("t", "<M-h>", [[<C-\><C-n><C-w>h]])
+vim.keymap.set("t", "<M-j>", [[<C-\><C-n><C-w>j]])
+vim.keymap.set("t", "<M-k>", [[<C-\><C-n><C-w>k]])
+vim.keymap.set("t", "<M-l>", [[<C-\><C-n><C-w>l]])
 
 -- Leave terminal mode
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")

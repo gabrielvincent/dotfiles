@@ -207,10 +207,4 @@ function M.refresh_snippets()
 end
 
 local mode = { "i", "s" }
-local normal = { "n" }
-
 vim.keymap.set(mode, "<M-i>", M.expand_or_jump)
-vim.keymap.set(mode, "<M-n>", M.jump_next)
-vim.keymap.set(mode, "<M-p>", M.jump_prev)
-vim.keymap.set(mode, "<M-l>", M.change_choice)
-vim.keymap.set(normal, ",r", M.refresh_snippets)
