@@ -55,6 +55,15 @@ config.keys = {
 		mods = "CMD|SHIFT",
 		action = act.ActivatePaneDirection("Down"),
 	},
+	{
+		key = "t",
+		mods = "CMD",
+		action = wezterm.action({
+			SpawnCommandInNewTab = {
+				cwd = wezterm.home_dir,
+			},
+		}),
+	},
 }
 
 return config
