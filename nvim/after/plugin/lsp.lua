@@ -219,11 +219,12 @@ lspconfig.theme_check.setup({
 	root_dir = require("lspconfig.util").root_pattern("config/settings_data.json"),
 })
 
-vim.filetype.add({ extension = { templ = "templ" } })
 lspconfig.templ.setup({
 	capabilities = capabilities,
 	filetypes = { "templ" },
+	cmd = { "TEMPL_EXPERIMENT=rawgo templ lsp" },
 })
+vim.filetype.add({ extension = { templ = "templ" } })
 
 lspconfig.gleam.setup({
 	capabilities = capabilities,

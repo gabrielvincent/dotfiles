@@ -8,6 +8,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.showmode = false
 
+vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.opt.smartindent = true
@@ -100,7 +101,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = function()
 		vim.cmd([[
             hi DiagnosticUnderlineError guisp=#FF0000 gui=undercurl
-            hi DiagnosticUnderlineWarn guisp=#FFFF00 gui=undercurl
+            hi DiagnosticUnderlineWarn guisp=#df8e1d gui=undercurl
             hi DiagnosticUnderlineInfo guisp=#ADD8E6 gui=undercurl
             hi DiagnosticUnderlineHint guisp=#90EE90 gui=undercurl
         ]])

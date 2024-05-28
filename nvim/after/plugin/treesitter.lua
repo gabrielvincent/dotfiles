@@ -22,6 +22,15 @@ require("nvim-treesitter.configs").setup({
 			-- 	["@class.outer"] = "<c-v>", -- blockwise
 			-- },
 		},
+		swap = {
+			enable = true,
+			swap_next = {
+				["<leader>sn"] = "@parameter.inner",
+			},
+			swap_previous = {
+				["<leader>sp"] = "@parameter.inner",
+			},
+		},
 		lsp_interop = {
 			enable = true,
 		},
