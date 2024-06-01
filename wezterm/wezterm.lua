@@ -6,9 +6,6 @@ local act = wezterm.action
 config.font_size = 18.0
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" } -- disable ligatures
 
--- Tab bar
-config.use_fancy_tab_bar = false
-
 -- Window padding
 config.window_padding = {
 	left = 16,
@@ -66,34 +63,25 @@ config.keys = {
 
 -- Setup Colorscheme
 local function get_appearance()
-	local handle =
-		io.popen("osascript -e 'tell application \"System Events\" to tell appearance preferences to get dark mode'")
-	if handle == nil then
-		return "light"
+	if wezterm.gui then
+		return wezterm.gui.get_appearance()
 	end
-
-	local result = handle:read("*a")
-	if result == nil then
-		return "light"
-	end
-
-	handle:close()
-	if result:find("true") then
-		return "dark"
-	else
-		return "light"
-	end
+	return "Light"
 end
 
 local appearance = get_appearance()
 local color_scheme = nil
 
-if appearance == "dark" then
+if appearance == "Dark" then
 	color_scheme = "Tokyo Night Moon"
 else
 	color_scheme = "Catppuccin Latte"
 end
 
 config.color_scheme = color_scheme
+
+-- Tabs
+config.use_fancy_tab_bar = false
+config.tab_max_width = 32
 
 return config

@@ -110,3 +110,24 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
 -- Trigger the autocmd manually once to apply the settings initially
 vim.cmd("doautocmd ColorScheme")
+
+-- Enable file name in Wezterm tab
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	callback = function(event)
+		local title = "vim"
+		if event.file ~= "" then
+			local cwd = vim.fn.getcwd()
+			title = cwd:match("([^/]+)$")
+		end
+
+		vim.fn.system({ "wezterm", "cli", "set-tab-title", title })
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "VimLeave" }, {
+	callback = function()
+		-- Setting title to empty string causes wezterm to revert to its
+		-- default behavior of setting the tab title automatically
+		vim.fn.system({ "wezterm", "cli", "set-tab-title", "" })
+	end,
+})
