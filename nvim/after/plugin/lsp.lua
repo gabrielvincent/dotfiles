@@ -12,6 +12,8 @@ cmp.setup({
 		["<C-j>"] = cmp.mapping.scroll_docs(-4),
 		["<C-k>"] = cmp.mapping.scroll_docs(4),
 		["<C-.>"] = cmp.mapping.complete(),
+		["<C-Space>"] = cmp.mapping.complete(),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
@@ -82,7 +84,17 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
 
 -- Configure rust_analyzer language server
-lspconfig.rust_analyzer.setup({ capabilities = capabilities })
+lspconfig.rust_analyzer.setup({
+	capabilities = capabilities,
+
+	settings = {
+		["rust-analyzer"] = {
+			cargo = {
+				features = "all",
+			},
+		},
+	},
+})
 
 -- Configure lua_ls language server
 lspconfig.lua_ls.setup({
