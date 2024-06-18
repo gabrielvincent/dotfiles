@@ -1,7 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  opts = {
-    textobjects = {
+  opts = function(_, opts)
+    opts.textobjects = {
       select = {
         enable = true,
         lookahead = true,
@@ -38,6 +38,6 @@ return {
       lsp_interop = {
         enable = true,
       },
-    },
-  },
+    }
+  end,
 }

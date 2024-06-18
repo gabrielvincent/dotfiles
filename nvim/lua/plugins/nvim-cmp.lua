@@ -4,6 +4,8 @@ return {
     local cmp = require("cmp")
     opts.mapping = cmp.mapping.preset.insert({
       ["<C-.>"] = cmp.mapping.complete(),
+      ["<C-Space>"] = cmp.mapping.complete(),
+      ["<Tab>"] = cmp.mapping.confirm({ select = true }),
     })
 
     table.insert(opts.sources, 1, {

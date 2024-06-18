@@ -2,9 +2,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
-    opts = {
+    opts = function(_, opts)
       ---@type lspconfig.options
-      servers = {
+      opts.servers = {
         gopls = {
           keys = {
             -- Workaround for the lack of a DAP strategy in neotest-go: https://github.com/nvim-neotest/neotest-go/issues/12
@@ -47,9 +47,31 @@ return {
             },
           },
         },
-      },
-      setup = {
-        gopls = function(_, opts)
+        tailwindcss = {
+          -- exclude a filetype from the default_config
+          filetypes_exclude = { "markdown" },
+          -- add additional filetypes to the default_config
+          filetypes_include = { "svelte", "templ" },
+          -- to fully override the default_config, change the below
+          -- filetypes = {}
+        },
+        svelte = {
+          keys = {
+            {
+              "<leader>co",
+              LazyVim.lsp.action["source.organizeImports"],
+              desc = "Organize Imports",
+            },
+          },
+          capabilities = {
+            workspace = {
+              didChangeWatchedFiles = vim.fn.has("nvim-0.10") == 0 and { dynamicRegistration = true },
+            },
+          },
+        },
+      }
+      opts.setup = {
+        gopls = function()
           -- workaround for gopls not supporting semanticTokensProvider
           -- https://github.com/golang/go/issues/54531#issuecomment-1464982242
           LazyVim.lsp.on_attach(function(client, _)
@@ -67,7 +89,24 @@ return {
           end, "gopls")
           -- end workaround
         end,
-      },
-    },
+
+        tailwindcss = function(_, tw_opts)
+          local tw = require("lspconfig.server_configurations.tailwindcss")
+          tw_opts.filetypes = tw_opts.filetypes or {}
+
+          -- Add default filetypes
+          vim.list_extend(tw_opts.filetypes, tw.default_config.filetypes)
+
+          -- Remove excluded filetypes
+          --- @param ft string
+          tw_opts.filetypes = vim.tbl_filter(function(ft)
+            return not vim.tbl_contains(tw_opts.filetypes_exclude or {}, ft)
+          end, tw_opts.filetypes)
+
+          -- Add additional filetypes
+          vim.list_extend(tw_opts.filetypes, tw_opts.filetypes_include or {})
+        end,
+      }
+    end,
   },
 }
