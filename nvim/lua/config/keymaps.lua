@@ -17,6 +17,8 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "{", "{zz")
 vim.keymap.set("n", "}", "}zz")
+vim.keymap.set("n", "<C-o>", "<C-o>zz")
+vim.keymap.set("n", "<C-i>", "<C-i>zz")
 
 --- Jump to end of line
 vim.keymap.set("v", "$", "g_")
@@ -26,6 +28,10 @@ vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("i", "kj", "<Esc>")
 vim.keymap.set("i", "<C-u>", "<Esc><C-u>")
 vim.keymap.set("i", "<C-d>", "<Esc><C-d>")
+
+-- Terminal mode keymaps
+vim.keymap.set("t", "<C-u>", "<C-\\><C-N><C-u>")
+vim.keymap.set("t", "<C-d>", "<C-\\><C-N><C-d>")
 
 -- Indent on enter insert mode
 vim.keymap.set("n", "i", function()
