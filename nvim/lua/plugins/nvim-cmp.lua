@@ -22,5 +22,8 @@ return {
       group_index = 1,
       priority = 1,
     })
+
+    opts.experimental = opts.experimental or {}
+    opts.experimental.ghost_text = false
   end,
 }

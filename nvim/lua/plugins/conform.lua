@@ -7,9 +7,5 @@ return {
     opts.formatters_by_ft.svelte = { "prettierd" }
     opts.formatters_by_ft.liquid = { "prettierd" }
     opts.formatters_by_ft.templ = { "templ" }
-    opts.formatters.golines = {
-      command = "golines",
-      args = { "-m", "80" },
-    }
   end,
 }
