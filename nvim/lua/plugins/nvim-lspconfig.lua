@@ -3,6 +3,8 @@ return {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
     opts = function(_, opts)
+      opts.inlay_hints = { enabled = false }
+
       ---@type lspconfig.options
       opts.setup = {
         gopls = function()
