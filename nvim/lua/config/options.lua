@@ -11,6 +11,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.showmode = false
+vim.opt.synmaxcol = 200
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -81,3 +82,30 @@ vim.api.nvim_create_user_command("SpellBufLang", function(details) -- I name it 
   local args = details.fargs
   vim.cmd("setlocal spell spelllang=" .. args[1])
 end, { nargs = "*" })
+
+-- Indent on enter insert mode
+vim.keymap.set("n", "i", function()
+  return string.match(vim.api.nvim_get_current_line(), "%g") == nil and "cc" or "i"
+end, { expr = true, noremap = true })
+
+vim.opt.pumblend = 10 -- Make popup menu transparent
+
+-- Configure float appearance
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#3e4451" })
+
+-- Adjust LSP float settings
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "rounded",
+})
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  border = "rounded",
+})
+
+-- Configure diagnostic float
+vim.diagnostic.config({
+  float = {
+    border = "rounded",
+  },
+})

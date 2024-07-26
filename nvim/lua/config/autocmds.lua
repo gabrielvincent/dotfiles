@@ -45,3 +45,20 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.textwidth = 80
   end,
 })
+
+-- Disable syntax for large files
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  pattern = "*",
+  callback = function()
+    local file_size = vim.fn.getfsize(vim.fn.expand("%"))
+    if file_size > 1024 * 1024 then -- 1MB
+      vim.cmd("syntax clear")
+      vim.cmd("set syntax=")
+      vim.opt_local.syntax = ""
+      vim.opt_local.filetype = ""
+      vim.cmd("TSDisable highlight")
+      vim.cmd("TSDisable textobjects")
+      print("Large file detected. Syntax highlighting disabled.")
+    end
+  end,
+})
