@@ -1,17 +1,20 @@
-local function replace_word_under_cursor()
-  local cursor_pos = vim.fn.getcurpos()
-  local word = vim.fn.expand("<cword>")
-
-  local replacement = vim.fn.input("Replace '" .. word .. "' with: ")
+local function replace_string(str, cursor_pos)
+  local replacement = vim.fn.input("Replace '" .. str .. "' with: ")
   if replacement ~= "" then
-    local command = "%s/\\<" .. word .. "\\>/" .. replacement .. "/g"
+    local command = "%s/\\<" .. str .. "\\>/" .. replacement .. "/g"
 
     vim.cmd(command)
     vim.fn.setpos(".", cursor_pos)
-    print("Replaced all occurrences of '" .. word .. "' with '" .. replacement .. "'")
+    print("Replaced all occurrences of '" .. str .. "' with '" .. replacement .. "'")
   else
     print("Replacement cancelled")
   end
+end
+
+local function replace_word_under_cursor()
+  local cursor_pos = vim.fn.getcurpos()
+  local word = vim.fn.expand("<cword>")
+  replace_string(word, cursor_pos)
 end
 
 return {
@@ -44,6 +47,14 @@ return {
         require("spectre").toggle,
         desc = "Replace in workspace with Spectre",
         icon = "",
+      },
+      {
+        "<leader>db",
+        function()
+          vim.cmd("DBUIToggle")
+        end,
+        desc = "Toggle Dadbod",
+        icon = "",
       },
     })
   end,

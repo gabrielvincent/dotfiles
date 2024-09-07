@@ -14,6 +14,7 @@ config.window_padding = {
 	bottom = 0,
 }
 
+config.leader = { key = " ", mods = "ALT", timeout_milliseconds = 1000 }
 config.keys = {
 	{
 		key = "-",
@@ -59,6 +60,9 @@ config.keys = {
 			},
 		}),
 	},
+	{ key = "s", mods = "LEADER", action = wezterm.action({ EmitEvent = "save_session" }) },
+	{ key = "l", mods = "LEADER", action = wezterm.action({ EmitEvent = "load_session" }) },
+	{ key = "r", mods = "LEADER", action = wezterm.action({ EmitEvent = "restore_session" }) },
 }
 
 -- Setup Colorscheme
@@ -73,9 +77,9 @@ local appearance = get_appearance()
 local color_scheme = nil
 
 if appearance == "Dark" then
-	color_scheme = "Tokyo Night Moon"
+	color_scheme = "PaperColor Dark (base16)"
 else
-	color_scheme = "Catppuccin Latte"
+	color_scheme = "PaperColor Light (base16)"
 end
 
 config.color_scheme = color_scheme
@@ -83,5 +87,17 @@ config.color_scheme = color_scheme
 -- Tabs
 config.use_fancy_tab_bar = false
 config.tab_max_width = 32
+
+-- Session Management
+local session_manager = require("wezterm-session-manager/session-manager")
+wezterm.on("save_session", function(window)
+	session_manager.save_state(window)
+end)
+wezterm.on("load_session", function(window)
+	session_manager.load_state(window)
+end)
+wezterm.on("restore_session", function(window)
+	session_manager.restore_state(window)
+end)
 
 return config

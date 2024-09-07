@@ -26,6 +26,11 @@ return {
           -- end workaround
         end,
       }
+      opts.servers = {
+        dartls = {
+          md = { "dart", "language-server", "--protocol=lsp" },
+        },
+      }
     end,
   },
 }

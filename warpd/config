@@ -1,0 +1,8 @@
+scroll_down: A-j
+scroll_up: A-k
+scroll_speed: 600
+scroll_max_speed: 9000
+scroll_acceleration: 0
+scroll_deceleration: -9000
+copy_and_exit: y
+repeat_interval: 10

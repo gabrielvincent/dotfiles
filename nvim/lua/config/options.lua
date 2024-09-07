@@ -46,7 +46,6 @@ vim.opt.listchars:append({ lead = "·", trail = "·", tab = "» " })
 
 -- split windows separators
 vim.opt.laststatus = 3
-
 -- Customize SpellBad highlight to use an undercurl
 vim.o.spelllang = "en"
 vim.api.nvim_set_hl(0, "SpellBad", {
