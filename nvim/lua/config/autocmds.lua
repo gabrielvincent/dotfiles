@@ -88,9 +88,16 @@ vim.api.nvim_create_autocmd({ "UIEnter", "ColorScheme" }, {
     io.write(string.format("\027]11;#%06x\027\\", normal.bg))
   end,
 })
-
 vim.api.nvim_create_autocmd("UILeave", {
   callback = function()
     io.write("\027]111\027\\")
+  end,
+})
+
+-- Start insert mode when a terminal buffer is opened
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "term://*",
+  callback = function()
+    vim.cmd("startinsert")
   end,
 })
