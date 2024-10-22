@@ -30,6 +30,7 @@ return {
         dartls = {
           md = { "dart", "language-server", "--protocol=lsp" },
         },
+        gleam = {},
       }
     end,
   },

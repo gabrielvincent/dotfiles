@@ -32,3 +32,11 @@ vim.keymap.set("i", "<C-d>", "<Esc><C-d>")
 -- Terminal mode keymaps
 vim.keymap.set("t", "<C-u>", "<C-\\><C-N><C-u>")
 vim.keymap.set("t", "<C-d>", "<C-\\><C-N><C-d>")
+
+-- Yank the line on `dd` only if it is non-empty
+vim.keymap.set("n", "dd", function()
+  if vim.fn.getline("."):match("^%s*$") then
+    return '"_dd'
+  end
+  return "dd"
+end, { expr = true })

@@ -29,7 +29,7 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 9999
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
@@ -40,9 +40,6 @@ vim.g.mapleader = " "
 
 vim.opt.list = true
 vim.opt.listchars:append({ lead = "·", trail = "·", tab = "» " })
--- vim.g.indentLine_enabled = 1
--- vim.g.indentLine_leadingSpaceChar = "•"
--- vim.g.indentLine_leadingSpaceEnabled = "1"
 
 -- split windows separators
 vim.opt.laststatus = 3

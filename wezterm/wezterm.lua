@@ -100,4 +100,5 @@ wezterm.on("restore_session", function(window)
 	session_manager.restore_state(window)
 end)
 
+
 return config

@@ -96,6 +96,9 @@ return {
     }
 
     local liquid_snippets = {
+      s("sset", fmt([[ section.settings.{1} ]], { i(1) })),
+      s("bset", fmt([[ block.settings.{1} ]], { i(1) })),
+
       s(
         "llog",
         fmt(
