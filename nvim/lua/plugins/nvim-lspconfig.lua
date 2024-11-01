@@ -26,12 +26,11 @@ return {
           -- end workaround
         end,
       }
-      opts.servers = {
-        dartls = {
-          md = { "dart", "language-server", "--protocol=lsp" },
-        },
-        gleam = {},
+
+      opts.servers.dartls = {
+        md = { "dart", "language-server", "--protocol=lsp" },
       }
+      opts.servers.gleam = {}
     end,
   },
 }
