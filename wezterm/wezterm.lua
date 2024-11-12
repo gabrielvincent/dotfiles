@@ -3,6 +3,7 @@ local config = wezterm.config_builder()
 local act = wezterm.action
 
 -- Font
+config.font = wezterm.font("DMMono Nerd Font")
 config.font_size = 22.0
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" } -- disable ligatures
 
@@ -99,6 +100,5 @@ end)
 wezterm.on("restore_session", function(window)
 	session_manager.restore_state(window)
 end)
-
 
 return config
