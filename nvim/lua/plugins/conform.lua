@@ -9,6 +9,7 @@ return {
     opts.formatters_by_ft.templ = { "templ" }
     opts.formatters_by_ft.hcl = { "hclfmt" }
     opts.formatters_by_ft.sql = { "sql-formatter" }
+    opts.formatters_by_ft.go = { "golines" }
 
     -- Add formatter definitions
     opts.formatters = opts.formatters or {}
