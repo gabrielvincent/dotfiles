@@ -64,13 +64,13 @@ config.keys = {
 	-- Disable CMD + Page Up
 	{
 		key = "PageUp",
-		mods = "CMD",
+		mods = "CTRL",
 		action = "DisableDefaultAssignment",
 	},
 	-- Disable CMD + Page Down
 	{
 		key = "PageDown",
-		mods = "CMD",
+		mods = "CTRL",
 		action = "DisableDefaultAssignment",
 	},
 	{ key = "s", mods = "LEADER", action = wezterm.action({ EmitEvent = "save_session" }) },
