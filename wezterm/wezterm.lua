@@ -61,6 +61,18 @@ config.keys = {
 			},
 		}),
 	},
+	-- Disable CMD + Page Up
+	{
+		key = "PageUp",
+		mods = "CMD",
+		action = "DisableDefaultAssignment",
+	},
+	-- Disable CMD + Page Down
+	{
+		key = "PageDown",
+		mods = "CMD",
+		action = "DisableDefaultAssignment",
+	},
 	{ key = "s", mods = "LEADER", action = wezterm.action({ EmitEvent = "save_session" }) },
 	{ key = "l", mods = "LEADER", action = wezterm.action({ EmitEvent = "load_session" }) },
 	{ key = "r", mods = "LEADER", action = wezterm.action({ EmitEvent = "restore_session" }) },
@@ -100,5 +112,8 @@ end)
 wezterm.on("restore_session", function(window)
 	session_manager.restore_state(window)
 end)
+
+-- UI
+config.max_fps = 120
 
 return config
