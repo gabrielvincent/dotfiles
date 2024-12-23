@@ -1,6 +1,9 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    dendencies = {
+      "saghen/blink.cmp",
+    },
     ---@class PluginLspOpts
     opts = function(_, opts)
       opts.inlay_hints = { enabled = false }

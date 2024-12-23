@@ -29,7 +29,7 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
-vim.opt.scrolloff = 9999
+vim.opt.scrolloff = 32
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
@@ -105,3 +105,5 @@ vim.diagnostic.config({
     border = "rounded",
   },
 })
+
+vim.g.lazyvim_picker = "fzf"
