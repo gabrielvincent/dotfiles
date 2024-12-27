@@ -52,20 +52,6 @@
                                 "type": "basic"
                             }
                         ]
-                    },
-                    {
-                        "description": "Caps Lock to Esc when pressed alone, Ctrl when used with other keys",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "key_code": "left_control" }],
-                                "to_if_alone": [{ "key_code": "escape" }],
-                                "type": "basic"
-                            }
-                        ]
                     }
                 ]
             },
