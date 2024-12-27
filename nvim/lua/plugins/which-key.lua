@@ -35,20 +35,6 @@ return {
         icon = "",
       },
       {
-        "<leader>sr",
-        function()
-          replace_word_under_cursor()
-        end,
-        desc = "Replace word under cursor",
-        icon = "",
-      },
-      {
-        "<leader>sR",
-        require("spectre").toggle,
-        desc = "Replace in workspace with Spectre",
-        icon = "",
-      },
-      {
         "<leader>db",
         function()
           vim.cmd("DBUIToggle")
