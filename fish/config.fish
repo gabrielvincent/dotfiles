@@ -33,3 +33,6 @@ fish_add_path $FVM_CACHE_PATH/default/bin
 alias vimc="/usr/bin/vim"
 alias vim="nvim"
 alias vimconfig="cd ~/.config/nvim && vim ."
+
+#Cursor
+set fish_cursor_default block
