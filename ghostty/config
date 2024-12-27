@@ -1,6 +1,16 @@
 theme = dark:tokyonight-moon,light:tokyonight-day
 
-font-size = 20
+font-size = 24
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
+
+cursor-style = block
+cursor-style-blink = true
+
+shell-integration-features = no-cursor
+
+unfocused-split-opacity = 0.75
+
+window-padding-balance = true
+
