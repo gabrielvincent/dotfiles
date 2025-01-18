@@ -5,17 +5,13 @@
         "parameters": { "basic.to_if_held_down_threshold_milliseconds": 250 },
         "rules": [
           {
-            "description": "Change ctrl+opt+cmd+hjkl to arrow keys",
+            "description": "Change left_option+hjkl to arrow keys",
             "manipulators": [
               {
                 "from": {
                   "key_code": "h",
                   "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "left_option",
-                      "left_command"
-                    ],
+                    "mandatory": ["left_option"],
                     "optional": ["any"]
                   }
                 },
@@ -26,11 +22,7 @@
                 "from": {
                   "key_code": "j",
                   "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "left_option",
-                      "left_command"
-                    ],
+                    "mandatory": ["left_option"],
                     "optional": ["any"]
                   }
                 },
@@ -41,11 +33,7 @@
                 "from": {
                   "key_code": "k",
                   "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "left_option",
-                      "left_command"
-                    ],
+                    "mandatory": ["left_option"],
                     "optional": ["any"]
                   }
                 },
@@ -56,11 +44,7 @@
                 "from": {
                   "key_code": "l",
                   "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "left_option",
-                      "left_command"
-                    ],
+                    "mandatory": ["left_option"],
                     "optional": ["any"]
                   }
                 },
@@ -77,4 +61,3 @@
     }
   ]
 }
-
