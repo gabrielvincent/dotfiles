@@ -19,6 +19,9 @@ vim.keymap.set("n", "{", "{zz")
 vim.keymap.set("n", "}", "}zz")
 vim.keymap.set("n", "<C-o>", "<C-o>zz")
 vim.keymap.set("n", "<C-i>", "<C-i>zz")
+vim.keymap.set("n", "<S-G>", "<S-G>zz", { remap = false })
+vim.keymap.set("n", "j", "jzz", { remap = false })
+vim.keymap.set("n", "k", "kzz", { remap = false })
 
 --- Jump to end of line
 vim.keymap.set("v", "$", "g_")
