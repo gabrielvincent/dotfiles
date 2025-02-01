@@ -31,15 +31,15 @@ fish_add_path $FVM_CACHE_PATH/default/bin
 
 # Aliases
 alias vimc="/usr/bin/vim"
-alias vim="nvim"
+alias vim="ANTHROPIC_API_KEY=(cat ~/.secrets/anthropic_api_key) nvim"
 alias vimconfig="cd ~/.config/nvim && vim ."
 
 #Cursor
 set fish_cursor_default block
 
 # pnpm
-set -gx PNPM_HOME "/Users/gabrielvincent/Library/pnpm"
+set -gx PNPM_HOME /Users/gabrielvincent/Library/pnpm
 if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end

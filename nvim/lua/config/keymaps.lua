@@ -20,8 +20,6 @@ vim.keymap.set("n", "}", "}zz")
 vim.keymap.set("n", "<C-o>", "<C-o>zz")
 vim.keymap.set("n", "<C-i>", "<C-i>zz")
 vim.keymap.set("n", "<S-G>", "<S-G>zz", { remap = false })
-vim.keymap.set("n", "j", "jzz", { remap = false })
-vim.keymap.set("n", "k", "kzz", { remap = false })
 
 --- Jump to end of line
 vim.keymap.set("v", "$", "g_")
@@ -32,12 +30,16 @@ vim.keymap.set("i", "kj", "<Esc>")
 vim.keymap.set("i", "<C-u>", "<Esc><C-u>")
 vim.keymap.set("i", "<C-d>", "<Esc><C-d>")
 
--- Terminal mode keymaps
-vim.keymap.set("t", "<esc>", "<C-\\><C-n>")
-vim.keymap.set("t", "<C-u>", "<C-\\><C-N><C-u>")
-vim.keymap.set("t", "<C-d>", "<C-\\><C-N><C-d>")
-vim.keymap.set("t", "<C-j>", "<C-\\><C-N><C-j>")
-vim.keymap.set("t", "<C-k>", "<C-\\><C-N><C-k>")
+vim.api.nvim_create_augroup("TerminalInsert", { clear = true })
+vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
+  group = "TerminalInsert",
+  pattern = "term://*", -- Only trigger for terminal buffers
+  callback = function()
+    if vim.bo.buftype == "terminal" then
+      vim.cmd("startinsert!")
+    end
+  end,
+})
 
 -- Yank the line on `dd` only if it is non-empty
 vim.keymap.set("n", "dd", function()
