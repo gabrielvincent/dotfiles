@@ -1,6 +1,6 @@
 theme = dark:zenbones_dark,light:zenbones_light
 
-font-size = 24
+font-size = 20
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
