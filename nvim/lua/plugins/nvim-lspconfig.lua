@@ -1,9 +1,6 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    dendencies = {
-      "saghen/blink.cmp",
-    },
     ---@class PluginLspOpts
     opts = function(_, opts)
       opts.inlay_hints = { enabled = false }
@@ -30,10 +27,14 @@ return {
         end,
       }
 
+      opts.servers = opts.servers or {}
+
       opts.servers.dartls = {
         md = { "dart", "language-server", "--protocol=lsp" },
       }
-      opts.servers.gleam = {}
+      opts.servers.tailwindcss = {
+        filetypes_include = { "go", "templ" },
+      }
     end,
   },
 }
