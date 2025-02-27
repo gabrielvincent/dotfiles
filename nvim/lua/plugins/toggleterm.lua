@@ -1,5 +1,3 @@
-local panes_count = 1
-
 function _G.close_current_terminal()
   local term_id = require("toggleterm.terminal").get_focused_id()
   if term_id then
