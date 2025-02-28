@@ -9,5 +9,7 @@ return {
   config = function()
     vim.g.zenbones_darken_comments = 45
     vim.cmd.colorscheme("zenwritten")
+
+    vim.cmd("highlight ColorColumn guibg=#D3D3D3 ctermbg=236")
   end,
 }
