@@ -18,6 +18,40 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 -- Trigger the autocmd manually once to apply the settings initially
 vim.cmd("doautocmd ColorScheme")
 
+-- Claude terminal command setup
+-- Using ID 100 which is well outside the normal terminal range (normal terminals start at 1)
+local claude_term_id = 100
+
+-- Register the terminal once at startup
+local create_claude_terminal = function()
+  local Terminal = require("toggleterm.terminal").Terminal
+
+  -- Create a dedicated Claude terminal
+  local claude = Terminal:new({
+    cmd = "claude",
+    id = claude_term_id,
+    direction = "vertical",
+    size = 80,
+    persist_size = true,
+    close_on_exit = false, -- Keep it around when the process exits
+    shade_terminals = false,
+    hidden = true, -- Start hidden and only show with our custom command
+    on_open = function()
+      vim.cmd("startinsert!")
+    end,
+  })
+
+  return claude
+end
+
+-- Store the Claude terminal instance globally to avoid recreating it
+_G.claude_terminal = _G.claude_terminal or create_claude_terminal()
+
+-- Create the :Claude command
+vim.api.nvim_create_user_command("Claude", function()
+  _G.claude_terminal:toggle()
+end, {})
+
 -- Enable file name in Wezterm tab
 if vim.env.WEZTERM_EXECUTABLE then
   vim.api.nvim_create_autocmd({ "BufEnter" }, {
