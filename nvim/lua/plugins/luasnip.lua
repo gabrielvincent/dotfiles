@@ -180,6 +180,7 @@ return {
     ls.add_snippets("typescriptreact", javascript_snippets)
     ls.add_snippets("typescriptreact", typescript_snippets)
     ls.add_snippets("svelte", javascript_snippets)
+    ls.add_snippets("vue", javascript_snippets)
     ls.add_snippets("go", go_snippets)
     ls.add_snippets("gleam", gleam_snippets)
     ls.add_snippets("liquid", liquid_snippets)
