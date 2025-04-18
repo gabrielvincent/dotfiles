@@ -25,6 +25,13 @@ return {
           end, "gopls")
           -- end workaround
         end,
+
+        crystalline = function()
+          LazyVim.lsp.on_attach(function(client, _)
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+          end, "crystalline")
+        end,
       }
 
       opts.servers = opts.servers or {}
