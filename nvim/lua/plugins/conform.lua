@@ -10,6 +10,7 @@ return {
     opts.formatters_by_ft.hcl = { "hclfmt" }
     opts.formatters_by_ft.sql = { "sql-formatter" }
     opts.formatters_by_ft.go = { "golines" }
+    opts.formatters_by_ft.crystal = { "crystal_fmt" }
 
     -- Add formatter definitions
     opts.formatters = opts.formatters or {}
@@ -18,6 +19,11 @@ return {
     }
     opts.formatters["sql-formatter"] = {
       command = "sql-formatter",
+    }
+    opts.formatters.crystal_fmt = {
+      command = "crystal",
+      args = { "tool", "format", "-" },
+      stdin = true,
     }
   end,
 }
