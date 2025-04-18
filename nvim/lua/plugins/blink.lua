@@ -12,9 +12,14 @@ return {
       providers = {
         codeium = {
           kind = "Codeium",
-          score_offset = -3,
+          score_offset = -999,
           async = true,
         },
+      },
+    }
+    opts.completion = {
+      ghost_text = {
+        enabled = false,
       },
     }
   end,
