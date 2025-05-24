@@ -22,6 +22,10 @@ vim.keymap.set("n", "<C-i>", "<C-i>zz")
 vim.keymap.set("n", "<S-G>", "<S-G>zz", { remap = false })
 vim.keymap.set("n", "<leader>j", "i<CR><Esc>")
 
+-- Disable buffer navigation
+vim.keymap.set("n", "L", "")
+vim.keymap.set("n", "H", "")
+
 --- Jump to end of line
 vim.keymap.set("v", "$", "g_")
 
