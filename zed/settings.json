@@ -7,6 +7,15 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent": {
+    "always_allow_tool_actions": true,
+    "model_parameters": [],
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-latest"
+    },
+    "version": "2"
+  },
   "terminal": {
     "dock": "right"
   },
@@ -21,5 +30,15 @@
     "mode": "system",
     "light": "Atelier Estuary Light",
     "dark": "One Dark"
+  },
+  "context_servers": {
+    "linear": {
+      "command": {
+        "path": "npx",
+        "args": ["-y", "mcp-remote", "https://mcp.linear.app/sse"],
+        "env": {}
+      },
+      "settings": {}
+    }
   }
 }

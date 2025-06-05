@@ -53,3 +53,18 @@ vim.keymap.set("n", "dd", function()
   end
   return "dd"
 end, { expr = true })
+
+vim.keymap.set({ "n", "t", "i" }, "<C-c>", function()
+  -- Check if current buffer is a terminal
+  if vim.bo.buftype == "terminal" then
+    return
+  end
+
+  -- Check if current buffer is a toggleterm buffer
+  if vim.bo.filetype == "toggleterm" or vim.bo.filetype == "codecompanion" then
+    return
+  end
+
+  -- Toggle CodeCompanionChat
+  require("codecompanion").toggle()
+end, { desc = "Toggle CodeCompanionChat" })
