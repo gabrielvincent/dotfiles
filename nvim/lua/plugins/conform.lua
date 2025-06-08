@@ -2,8 +2,53 @@ return {
   "conform.nvim",
   opts = function(_, opts)
     opts.formatters_by_ft = opts.formatters_by_ft or {}
-    opts.formatters_by_ft.javascript = { "prettierd" }
-    opts.formatters_by_ft.typescript = { "biome", "biome-organize-imports" }
+
+    -- Function to check if prettier config exists
+    local function has_prettier_config()
+      local prettier_configs = {
+        ".prettierrc",
+        ".prettierrc.json",
+        ".prettierrc.js",
+        ".prettierrc.yaml",
+        ".prettierrc.yml",
+        "prettier.config.js",
+        "prettier.config.mjs",
+        "prettier.config.cjs",
+      }
+
+      for _, config in ipairs(prettier_configs) do
+        if vim.fn.findfile(config, ".;") ~= "" then
+          return true
+        end
+      end
+
+      -- Check package.json for prettier config
+      local package_json = vim.fn.findfile("package.json", ".;")
+      if package_json ~= "" then
+        local ok, content = pcall(vim.fn.readfile, package_json)
+        if ok then
+          local json_str = table.concat(content, "\n")
+          if string.find(json_str, '"prettier"') then
+            return true
+          end
+        end
+      end
+
+      return false
+    end
+
+    -- Conditional formatter function
+    local function js_formatter()
+      return has_prettier_config() and { "prettierd" } or { "biome" }
+    end
+
+    local function ts_formatter()
+      return has_prettier_config() and { "prettierd" } or { "biome", "biome-organize-imports" }
+    end
+
+    opts.formatters_by_ft.javascript = js_formatter
+    opts.formatters_by_ft.typescript = ts_formatter
+    opts.formatters_by_ft.json = js_formatter()
     opts.formatters_by_ft.svelte = { "prettierd" }
     opts.formatters_by_ft.liquid = { "prettierd" }
     opts.formatters_by_ft.templ = { "templ" }
