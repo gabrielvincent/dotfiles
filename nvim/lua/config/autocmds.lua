@@ -105,3 +105,5 @@ vim.api.nvim_create_autocmd("BufEnter", {
     vim.cmd("startinsert")
   end,
 })
+
+vim.api.nvim_create_user_command("W", "w", {})

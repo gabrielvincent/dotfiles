@@ -37,7 +37,7 @@ vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
 
 vim.opt.list = true
-vim.opt.listchars:append({ lead = "·", trail = "·", tab = "» " })
+-- vim.opt.listchars:append({ lead = "·", trail = "·", tab = "» " })
 
 -- split windows separators
 vim.opt.laststatus = 3

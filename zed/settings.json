@@ -7,38 +7,50 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "agent": {
-    "always_allow_tool_actions": true,
-    "model_parameters": [],
-    "default_model": {
-      "provider": "anthropic",
-      "model": "claude-sonnet-4-latest"
+    "agent": {
+        "always_allow_tool_actions": true,
+        "model_parameters": [],
+        "default_model": {
+            "provider": "anthropic",
+            "model": "claude-sonnet-4-latest"
+        },
+        "version": "2"
     },
-    "version": "2"
-  },
-  "terminal": {
-    "dock": "right"
-  },
-  "vim_mode": true,
-  "ui_font_size": 18,
-  "buffer_font_size": 21,
-  "relative_line_numbers": true,
-  "buffer_font_features": {
-    "calt": false
-  },
-  "theme": {
-    "mode": "system",
-    "light": "Atelier Estuary Light",
-    "dark": "One Dark"
-  },
-  "context_servers": {
-    "linear": {
-      "command": {
-        "path": "npx",
-        "args": ["-y", "mcp-remote", "https://mcp.linear.app/sse"],
-        "env": {}
-      },
-      "settings": {}
-    }
-  }
+    "terminal": {
+        "dock": "right"
+    },
+    "vim_mode": true,
+    "ui_font_size": 18,
+    "buffer_font_size": 21,
+    "relative_line_numbers": true,
+    "buffer_font_features": {
+        "calt": false
+    },
+    "theme": {
+        "mode": "system",
+        "light": "One Light",
+        "dark": "One Dark"
+    },
+    "context_servers": {
+        "linear": {
+            "command": {
+                "path": "npx",
+                "args": ["-y", "mcp-remote", "https://mcp.linear.app/sse"],
+                "env": {}
+            },
+            "settings": {}
+        }
+    },
+    "tab_bar": {
+        "show": false
+    },
+    "scrollbar": {
+        "show": "never"
+    },
+    "vertical_scroll_margin": 8,
+    "command_aliases": {
+        "W": "w",
+        "Wq": "wq"
+    },
+    "tab_size": 4
 }

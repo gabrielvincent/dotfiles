@@ -10,10 +10,8 @@
     "context": "Workspace || (Editor && vim_mode == normal && vim_operator == none && !VimWaiting)",
     "bindings": {
       "space f f": "file_finder::Toggle",
-      "space f b": "tab_switcher::Toggle",
       "space c f": "editor::Format",
       "space s g": "workspace::NewSearch",
-      "space e": "workspace::ToggleLeftDock",
       "gx": "editor::OpenUrl"
     }
   },
@@ -41,10 +39,10 @@
   {
     "context": "Terminal || Editor",
     "bindings": {
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight",
-      "ctrl-j": "workspace::ActivatePaneDown",
-      "ctrl-k": "workspace::ActivatePaneUp"
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"]
     }
   },
   {
