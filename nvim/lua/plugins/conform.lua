@@ -17,7 +17,7 @@ return {
       }
 
       for _, config in ipairs(prettier_configs) do
-        if vim.fn.findfile(config, ".") ~= "" then
+        if vim.fn.findfile(config, ".;" .. vim.fn.getcwd()) ~= "" then
           return true
         end
       end
