@@ -33,6 +33,8 @@ fish_add_path $FVM_CACHE_PATH/default/bin
 alias vimc="/usr/bin/vim"
 alias vim="ANTHROPIC_API_KEY=(cat ~/.secrets/anthropic_api_key) nvim"
 alias vimconfig="cd ~/.config/nvim && vim ."
+alias claude="/Users/gabrielvincent/.claude/local/claude"
+alias gco="git checkout"
 
 #Cursor
 set fish_cursor_default block
@@ -47,5 +49,3 @@ end
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
-
-alias claude="/Users/gabrielvincent/.claude/local/claude"
