@@ -11,3 +11,6 @@
 !.gitignore
 !zed
 !Brewfile
+
+zed/prompts
+zed/conversations
