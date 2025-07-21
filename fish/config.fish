@@ -31,7 +31,7 @@ fish_add_path $FVM_CACHE_PATH/default/bin
 
 # Aliases
 alias vimc="/usr/bin/vim"
-alias vim="ANTHROPIC_API_KEY=(cat ~/.secrets/anthropic_api_key) nvim"
+alias vim="nvim"
 alias vimconfig="cd ~/.config/nvim && vim ."
 alias claude="/Users/gabrielvincent/.claude/local/claude"
 alias gco="git checkout"
