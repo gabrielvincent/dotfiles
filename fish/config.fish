@@ -33,8 +33,9 @@ fish_add_path $FVM_CACHE_PATH/default/bin
 alias vimc="/usr/bin/vim"
 alias vim="nvim"
 alias vimconfig="cd ~/.config/nvim && vim ."
-alias claude="/Users/gabrielvincent/.claude/local/claude"
+alias claude="~/.claude/local/claude"
 alias gco="git checkout"
+alias signal="~/.cargo/bin/gurk"
 
 #Cursor
 set fish_cursor_default block
