@@ -36,6 +36,7 @@ alias vimconfig="cd ~/.config/nvim && vim ."
 alias claude="~/.claude/local/claude"
 alias gco="git checkout"
 alias signal="~/.cargo/bin/gurk"
+alias mysql-local="docker compose -f ~/.config/mysql_local/docker-compose.yml"
 
 #Cursor
 set fish_cursor_default block
