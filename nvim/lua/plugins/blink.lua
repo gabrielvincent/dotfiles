@@ -2,9 +2,12 @@ return {
   "saghen/blink.cmp",
   optional = true,
   dependencies = { "codeium.nvim", "saghen/blink.compat" },
+  ---@module 'blink.cmp'
+  ---@type fun(_, opts: blink.cmp.Config)
   opts = function(_, opts)
     opts.keymap = {
-      preset = "super-tab",
+      preset = "default",
+      ["<Tab>"] = { "select_and_accept" },
     }
     opts.sources = {
       default = { "lsp", "path", "snippets", "buffer" },
