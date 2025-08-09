@@ -6,54 +6,55 @@
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
 [
-  {
-    "context": "Workspace || (Editor && vim_mode == normal && vim_operator == none && !VimWaiting)",
-    "bindings": {
-      "space f f": "file_finder::Toggle",
-      "space f b": "tab_switcher::Toggle",
-      "space c f": "editor::Format",
-      "space s g": "workspace::NewSearch",
-      "space e": "workspace::ToggleLeftDock",
-      "gx": "editor::OpenUrl"
+    {
+        "context": "Workspace || (Editor && vim_mode == normal && vim_operator == none && !VimWaiting)",
+        "bindings": {
+            "space f f": "file_finder::Toggle",
+            "space f b": "tab_switcher::Toggle",
+            "space c f": "editor::Format",
+            "space s g": "workspace::NewSearch",
+            "space s s": "outline::Toggle", // Modal buffer symbols
+            "space e": "workspace::ToggleLeftDock",
+            "gx": "editor::OpenUrl"
+        }
+    },
+    {
+        "context": "Editor && vim_mode == visual && vim_operator == none",
+        "bindings": {
+            "shift-k": "editor::MoveLineUp",
+            "shift-j": "editor::MoveLineDown"
+        }
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            // "shift shift": "file_finder::Toggle"
+            "ctrl-\\": "workspace::ToggleRightDock",
+            "space ff": "command_palette::Toggle"
+        }
+    },
+    {
+        "context": "Editor",
+        "bindings": {
+            // "j k": ["workspace::SendKeystrokes", "escape"]
+        }
+    },
+    {
+        "context": "Terminal || Editor",
+        "bindings": {
+            "ctrl-h": "workspace::ActivatePaneLeft",
+            "ctrl-l": "workspace::ActivatePaneRight",
+            "ctrl-j": "workspace::ActivatePaneDown",
+            "ctrl-k": "workspace::ActivatePaneUp"
+        }
+    },
+    {
+        "context": "Terminal",
+        "bindings": {
+            "cmd-shift-d": "pane::SplitDown",
+            "ctrl-shift-k": "terminal::ScrollLineUp",
+            "ctrl-shift-j": "terminal::ScrollLineDown",
+            "g g": "terminal::ScrollToTop"
+        }
     }
-  },
-  {
-    "context": "Editor && vim_mode == visual && vim_operator == none",
-    "bindings": {
-      "shift-k": "editor::MoveLineUp",
-      "shift-j": "editor::MoveLineDown"
-    }
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
-      // "shift shift": "file_finder::Toggle"
-      "ctrl-\\": "workspace::ToggleRightDock",
-      "space ff": "command_palette::Toggle"
-    }
-  },
-  {
-    "context": "Editor",
-    "bindings": {
-      // "j k": ["workspace::SendKeystrokes", "escape"]
-    }
-  },
-  {
-    "context": "Terminal || Editor",
-    "bindings": {
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight",
-      "ctrl-j": "workspace::ActivatePaneDown",
-      "ctrl-k": "workspace::ActivatePaneUp"
-    }
-  },
-  {
-    "context": "Terminal",
-    "bindings": {
-      "cmd-shift-d": "pane::SplitDown",
-      "ctrl-shift-k": "terminal::ScrollLineUp",
-      "ctrl-shift-j": "terminal::ScrollLineDown",
-      "g g": "terminal::ScrollToTop"
-    }
-  }
 ]

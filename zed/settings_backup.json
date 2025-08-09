@@ -13,7 +13,8 @@
         "default_model": {
             "provider": "anthropic",
             "model": "claude-sonnet-4-latest"
-        }
+        },
+        "version": "2"
     },
     "terminal": {
         "dock": "right"
@@ -30,7 +31,16 @@
         "light": "One Light",
         "dark": "One Dark"
     },
-    "context_servers": {},
+    "context_servers": {
+        "linear": {
+            "command": {
+                "path": "npx",
+                "args": ["-y", "mcp-remote", "https://mcp.linear.app/sse"],
+                "env": {}
+            },
+            "settings": {}
+        }
+    },
     "tab_bar": {
         "show": true
     },
