@@ -26,6 +26,9 @@ vim.keymap.set("n", "<leader>j", "i<CR><Esc>")
 vim.keymap.set("n", "L", "")
 vim.keymap.set("n", "H", "")
 
+-- Disable <leader>ff keymap
+vim.keymap.set("n", "<leader>ff", "<nop>")
+
 --- Jump to end of line
 vim.keymap.set("v", "$", "g_")
 
