@@ -88,15 +88,6 @@ vim.opt.pumblend = 10 -- Make popup menu transparent
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#3e4451" })
 
--- Adjust LSP float settings
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
-})
-
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = "rounded",
-})
-
 -- Configure diagnostic float
 vim.diagnostic.config({
   float = {
