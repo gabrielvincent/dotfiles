@@ -96,5 +96,3 @@ vim.diagnostic.config({
 })
 
 vim.g.lazyvim_picker = "fzf"
-
-vim.g.jumpotion = "stack"
