@@ -1,4 +1,4 @@
-theme = dark:zenbones_dark,light:zenbones_light
+theme = dark:zenbones_dark,light:catppuccin-latte
 
 font-family = BlexMono Nerd Font Mono
 font-size = 21
