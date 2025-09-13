@@ -2,6 +2,9 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+# Source secrets
+source ~/.config/fish/secrets.fish
+
 # Python (pyenv)
 if command -v pyenv 1>/dev/null 2>&1
     set -gx PYENV_ROOT $HOME/.pyenv
