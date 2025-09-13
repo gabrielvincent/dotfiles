@@ -46,12 +46,6 @@ return {
         filetypes_include = { "go", "templ" },
       }
 
-      opts.servers.volar = {
-        require("lspconfig").volar.setup({
-          filetypes = { "vue", "json" },
-        }),
-      }
-
       ---@type lspconfig.options
       opts.setup = {
         gopls = function()
