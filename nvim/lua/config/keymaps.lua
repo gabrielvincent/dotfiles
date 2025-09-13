@@ -57,3 +57,7 @@ vim.keymap.set("n", "dd", function()
   return "dd"
 end, { expr = true })
 
+-- Create YankBufferPath command
+vim.api.nvim_create_user_command("YankBufPath", function()
+  vim.fn.setreg("+", vim.fn.expand("%"))
+end, {})
