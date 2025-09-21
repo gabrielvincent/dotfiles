@@ -7,13 +7,13 @@
 // from the command palette.
 [
     {
-        "context": "Workspace || (Editor && vim_mode == normal && vim_operator == none && !VimWaiting)",
+        "context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
         "bindings": {
             "space f f": "file_finder::Toggle",
             "space f b": "tab_switcher::Toggle",
             "space c f": "editor::Format",
             "space s g": "workspace::NewSearch",
-            "space s s": "outline::Toggle", // Modal buffer symbols
+            "space s s": "outline::Toggle",
             "space e": "workspace::ToggleLeftDock",
             "gx": "editor::OpenUrl"
         }
@@ -28,8 +28,12 @@
     {
         "context": "Workspace",
         "bindings": {
-            // "shift shift": "file_finder::Toggle"
-            "ctrl-\\": "workspace::ToggleRightDock",
+            "ctrl-\\": "workspace::ToggleRightDock"
+        }
+    },
+    {
+        "context": "Workspace && vim_mode == normal",
+        "bindings": {
             "space ff": "command_palette::Toggle"
         }
     },
