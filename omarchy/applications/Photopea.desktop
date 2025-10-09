@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Photopea
+Comment=Photopea
+Exec=omarchy-launch-webapp https://photopea.com
+Terminal=false
+Type=Application
+Icon=/home/vin/.local/share/applications/icons/Photopea.png
+StartupNotify=true
+StartupWMClass=chrome-photopea.com__-Default
