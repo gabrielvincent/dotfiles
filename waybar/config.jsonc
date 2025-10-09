@@ -49,6 +49,11 @@
     "on-click": "omarchy-menu",
     "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
   },
+  "custom/megasync": {
+    "format": "☁ MEGA ",
+    "on-click": "hyprctl dispatch togglespecialworkspace megasync",
+    "tooltip-format": "Toggle Megasync Workspace"
+  },
   "custom/update": {
     "format": "",
     "exec": "omarchy-update-available",
@@ -57,7 +62,6 @@
     "signal": 7,
     "interval": 3600
   },
-
   "cpu": {
     "interval": 5,
     "format": "󰍛",
@@ -125,7 +129,7 @@
       "transition-duration": 600,
       "children-class": "tray-group-item"
     },
-    "modules": ["custom/expand-icon", "tray"]
+    "modules": ["custom/expand-icon", "custom/megasync"]
   },
   "custom/expand-icon": {
     "format": " ",
