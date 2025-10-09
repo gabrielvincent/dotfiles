@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Teams
+Comment=Teams
+Exec=omarchy-launch-webapp https://teams.microsoft.com
+Terminal=false
+Type=Application
+Icon=/home/vin/.local/share/applications/icons/Teams.png
+StartupNotify=true
+StartupWMClass=chrome-teams.microsoft.com__-Default
