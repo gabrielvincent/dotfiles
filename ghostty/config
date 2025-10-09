@@ -1,0 +1,31 @@
+# Dynamic theme colors
+config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
+
+# Font
+font-size = 16
+font-style = Regular
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+
+# Window
+window-padding-x = 4
+window-padding-y = 4
+confirm-close-surface=false
+resize-overlay = never
+
+# Cursor styling
+cursor-style = "block"
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+# Keyboard bindings
+keybind = f11=toggle_fullscreen
+
+unfocused-split-opacity = 0.75
+
+window-padding-balance = true
+
+keybind = shift+enter=text:\n
+keybind = performable:ctrl+c=copy_to_clipboard
+keybind = performable:ctrl+v=paste_from_clipboard

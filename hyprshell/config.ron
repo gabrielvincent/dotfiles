@@ -1,0 +1,88 @@
+(
+    version: 3,
+    windows: (
+        scale: 8.5,
+        items_per_row: 5,
+        overview: (
+            launcher: (
+                default_terminal: "ghostty",
+                launch_modifier: "ctrl",
+                width: 650,
+                max_items: 5,
+                show_when_empty: true,
+                plugins: (
+                    applications: (
+                        run_cache_weeks: 8,
+                        show_execs: true,
+                        show_actions_submenu: true,
+                    ),
+                    terminal: (),
+                    shell: (),
+                    websearch: (
+                        engines: [
+                            (
+                                url: "https://duckduckgo.com/?q={}",
+                                name: "DuckDuckGo",
+                                key: 'd',
+                            ),
+                        ],
+                    ),
+                    calc: (),
+                    path: (),
+                    actions: (
+                        actions: [
+                            lock_screen,
+                            hibernate,
+                            logout,
+                            reboot,
+                            shutdown,
+                            suspend,
+                            custom(
+                                names: [
+                                    "Kill",
+                                    "Stop",
+                                ],
+                                details: "Kill or stop a process by name",
+                                command: "pkill \"{}\" && notify-send hyprshell \"stopped {}\"",
+                                icon: "remove",
+                            ),
+                            custom(
+                                names: [
+                                    "Reload Hyprshell",
+                                ],
+                                details: "Reload Hyprshell",
+                                command: "sleep 1; hyprshell socat \'\"Restart\"\'",
+                                icon: "system-restart",
+                            ),
+                            custom(
+                                names: [
+                                    "Connect to AirPods",
+                                ],
+                                details: "Connect to AirPods",
+                                command: "cd ~/code && ./connect-airpods.sh",
+                                icon: "bluetooth",
+                            ),
+                            custom(
+                                        names: [
+                                            "Kill Port 8080",
+                                        ],
+                                        details: "Kill process running on port 8080",
+                                        command: "fuser -k 8080/tcp && notify-send hyprshell \"Killed process on port 8080\"",
+                                        icon: "process-stop",
+                                    ),
+                                                    ],
+                                                ),
+                                            ),
+            ),
+            key: "colon",
+            modifier: "super",
+            filter_by: [],
+            hide_filtered: false,
+        ),
+        switch: (
+            modifier: "alt",
+            filter_by: [],
+            switch_workspaces: true,
+        ),
+    ),
+)

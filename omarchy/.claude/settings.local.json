@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/vin/.local/share/applications/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

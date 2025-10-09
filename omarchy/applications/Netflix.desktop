@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Netflix
+Comment=Netflix
+Exec=omarchy-launch-or-focus-webapp Netflix https://netflix.com
+Terminal=false
+Type=Application
+Icon=/home/vin/.local/share/applications/icons/Netflix.png
+StartupNotify=true
+StartupWMClass=chrome-netflix.com__-Default
