@@ -1,0 +1,40 @@
+[general]
+status_path = "~/.vdirsyncer/status/"
+
+# Local storage - where files will be saved
+[storage cal_local]
+type = "filesystem"
+path = "~/.calendars/"
+fileext = ".ics"
+
+# Remote iCloud storage
+[storage cal_remote]
+type = "caldav"
+url = "https://caldav.icloud.com/"
+username = "<email>"
+password = "<password>"
+
+# Pair that syncs remote to local
+[pair icloud_sync]
+a = "cal_local"
+b = "cal_remote"
+collections = ["from a", "from b"]
+metadata = ["displayname", "color"]
+
+[storage outlook_local]
+type = "filesystem"
+path = "~/.calendars/outlook/"
+fileext = ".ics"
+
+[storage outlook_remote]
+type = "caldav"
+url = "http://localhost:1080/users/<email>/calendar/"
+username = "<email>"
+password = "<password>"
+
+[pair outlook_sync]
+a = "outlook_local"
+b = "outlook_remote"
+collections = ["from a", "from b"]
+metadata = ["displayname", "color"]
+

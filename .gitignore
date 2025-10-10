@@ -1,5 +1,7 @@
 /*
 
+/**/.claude
+
 !nvim
 !ghostty
 !.gitignore
@@ -10,6 +12,9 @@
 !omarchy
 !uwsm
 !waybar
+!calcurse
+!vdirsyncer
+vdirsyncer/config
 
 zed/prompts
 zed/conversations
