@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Calendar
+Comment=Calendar
+Exec=$TERMINAL --class=calendar -e calcurse
+Terminal=false
+Type=Application
+Icon=/home/vin/.local/share/applications/icons/Calendar.png
+StartupNotify=true
+StartupWMClass=calendar
