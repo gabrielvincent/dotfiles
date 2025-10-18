@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Lazysql
+Comment=Lazysql
+Exec=$TERMINAL --class=lazysql --title="lazysql" -e lazysql
+Terminal=false
+Type=Application
+Icon=/home/vin/.local/share/applications/icons/Lazysql.png
+StartupNotify=true
+StartupWMClass=lazysql

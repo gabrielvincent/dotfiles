@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=k9s
+Comment=k9s
+Exec=alacritty --class=k9s --title="k9s" -e k9s
+Terminal=false
+Type=Application
+Icon=/home/vin/.local/share/applications/icons/k9s.png
+StartupNotify=true
+StartupWMClass=k9s
