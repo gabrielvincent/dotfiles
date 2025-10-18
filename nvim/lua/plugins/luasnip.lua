@@ -227,6 +227,6 @@ return {
     end
 
     local mode = { "i", "s" }
-    vim.keymap.set(mode, "<M-i>", M.expand_or_jump)
+    vim.keymap.set(mode, "<C-i>", M.expand_or_jump)
   end,
 }
