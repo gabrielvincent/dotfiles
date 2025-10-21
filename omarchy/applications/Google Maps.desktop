@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Google Maps
+Comment=Google Maps
+Exec=omarchy-launch-webapp https://maps.google.com
+Terminal=false
+Type=Application
+Icon=/home/vin/.local/share/applications/icons/Google Maps.png
+StartupNotify=true
+StartupWMClass=chrome-maps.google.com__-Default

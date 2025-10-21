@@ -1,0 +1,11 @@
+[Desktop Entry]
+Hidden=true
+Version=1.0
+Name=btop
+Comment=btop
+Exec=alacritty --class=btop --title="btop" -e btop
+Terminal=false
+Type=Application
+Icon=/home/vin/.local/share/applications/icons/btop.png
+StartupNotify=true
+StartupWMClass=btop

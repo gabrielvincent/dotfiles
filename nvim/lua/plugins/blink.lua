@@ -1,7 +1,7 @@
 return {
   "saghen/blink.cmp",
   optional = true,
-  dependencies = { "codeium.nvim", "saghen/blink.compat" },
+  dependencies = { "saghen/blink.compat" },
   ---@module 'blink.cmp'
   ---@type fun(_, opts: blink.cmp.Config)
   opts = function(_, opts)
