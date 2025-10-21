@@ -1,22 +1,17 @@
 :root {
-    --border-color: rgba(90, 90, 120, 0.4);
-    --border-color-active: rgba(239, 139, 9, 0.9);
-
-    --bg-color: rgba(20, 20, 20, 0.8);
-    --bg-color-hover: rgba(40, 40, 50, 1);
-
-    --border-radius: 12px;
-    --border-size: 3px;
-    --border-style: solid;
-
-    --text-color: rgba(245, 245, 245, 1);
-
-    --window-padding: 2px;
+  --border-color: rgba(83, 98, 92, 0.4);
+  --border-color-active: rgba(167, 192, 128, 0.9);
+  --bg-color: rgba(43, 51, 57, 0.8);
+  --bg-color-hover: rgba(64, 75, 82, 1);
+  --border-radius: 12px;
+  --border-size: 3px;
+  --border-style: solid;
+  --text-color: rgba(211, 198, 170, 1);
+  --window-padding: 2px;
 }
 
 .window {
 }
-
 
 .monitor {
 }
@@ -29,7 +24,6 @@
 
 .client-image {
 }
-
 
 .launcher {
 }
@@ -54,3 +48,4 @@
 
 .launcher-plugin {
 }
+
