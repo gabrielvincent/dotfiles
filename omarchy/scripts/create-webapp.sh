@@ -16,6 +16,7 @@ fi
 app_name=$1
 app_url="chrome-""$2""__-Default"
 
-mv ~/.local/share/applications/"$app_name".desktop ~/.config/omarchy/applications
-echo "StartupWMClass=$app_url" >> ~/.config/omarchy/applications/"$app_name".desktop
-ln -s ~/.config/omarchy/applications/"$app_name".desktop ~/.local/share/applications/"$app_name".desktop
+mv ~/.local/share/applications/"$app_name".desktop ~/.config/omarchy/applications && \
+echo "StartupWMClass=$app_url" >> ~/.config/omarchy/applications/"$app_name".desktop && \
+ln -s ~/.config/omarchy/applications/"$app_name".desktop ~/.local/share/applications/"$app_name".desktop && \
+update-desktop-database ~/.local/share/applications/update-desktop-database ~/.local/share/applications

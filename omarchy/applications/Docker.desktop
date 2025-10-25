@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Docker
+Comment=Docker
+Exec=$TERMINAL --class="com.lazydocker" --title="Docker" -e lazydocker
+Terminal=false
+Type=Application
+Icon=/home/vin/.local/share/applications/icons/Docker.png
+StartupNotify=true
+StartupWMClass="com.lazydocker"

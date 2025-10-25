@@ -16,6 +16,7 @@ fi
 app_name=$1
 app_class=$2
 
-mv ~/.local/share/applications/"$app_name".desktop ~/.config/omarchy/applications
-echo "StartupWMClass=$app_class" >> ~/.config/omarchy/applications/"$app_name".desktop
-ln -s ~/.config/omarchy/applications/"$app_name".desktop ~/.local/share/applications/"$app_name".desktop
+mv ~/.local/share/applications/"$app_name".desktop ~/.config/omarchy/applications && \
+echo "StartupWMClass=$app_class" >> ~/.config/omarchy/applications/"$app_name".desktop && \
+ln -s ~/.config/omarchy/applications/"$app_name".desktop ~/.local/share/applications/"$app_name".desktop && \
+update-desktop-database ~/.local/share/applications

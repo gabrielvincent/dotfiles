@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=ASCIIFlow
+Comment=ASCIIFlow
+Exec=omarchy-launch-webapp https://asciiflow.com
+Terminal=false
+Type=Application
+Icon=/home/vin/.local/share/applications/icons/ASCIIFlow.png
+StartupNotify=true
+StartupWMClass=chrome-asciiflow.com__-Default
