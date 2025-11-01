@@ -29,5 +29,5 @@ unfocused-split-opacity = 0.75
 window-padding-balance = true
 
 keybind = shift+enter=text:\n
-keybind = performable:ctrl+c=copy_to_clipboard
-keybind = performable:ctrl+v=paste_from_clipboard
+# keybind = performable:ctrl+c=copy_to_clipboard
+# keybind = performable:ctrl+v=paste_from_clipboard
