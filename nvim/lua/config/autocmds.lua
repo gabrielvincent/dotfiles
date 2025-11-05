@@ -45,6 +45,9 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "markdown", "text" },
   callback = function()
     vim.bo.textwidth = 80
+    -- Enable spell checking with both English and Portuguese
+    vim.opt_local.spell = true
+    vim.opt_local.spelllang = { "en", "pt" }
   end,
 })
 
