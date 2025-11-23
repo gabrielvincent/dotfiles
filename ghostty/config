@@ -23,6 +23,10 @@ shell-integration-features = no-cursor
 keybind = f11=toggle_fullscreen
 keybind = shift+insert=paste_from_clipboard
 keybind = control+insert=copy_to_clipboard
+keybind = super+control+shift+alt+arrow_down=resize_split:down,100
+keybind = super+control+shift+alt+arrow_up=resize_split:up,100
+keybind = super+control+shift+alt+arrow_left=resize_split:left,100
+keybind = super+control+shift+alt+arrow_right=resize_split:right,100
 
 unfocused-split-opacity = 0.75
 
@@ -31,3 +35,6 @@ window-padding-balance = true
 keybind = shift+enter=text:\n
 # keybind = performable:ctrl+c=copy_to_clipboard
 # keybind = performable:ctrl+v=paste_from_clipboard
+
+# Slowdown mouse scrolling
+mouse-scroll-multiplier = 0.95
