@@ -82,7 +82,7 @@
         switch: (
             modifier: "alt",
             filter_by: [],
-            switch_workspaces: false,
+            switch_workspaces: true,
         ),
     ),
 )
