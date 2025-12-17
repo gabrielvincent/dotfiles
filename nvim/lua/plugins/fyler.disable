@@ -1,0 +1,23 @@
+vim.keymap.set("n", "-", "<cmd>Fyler<cr>", { desc = "Open Fyler View" })
+
+return {
+  "A7Lavinraj/fyler.nvim",
+  dependencies = { "nvim-mini/mini.icons" },
+  branch = "stable",
+  opts = {
+    views = {
+      mappings = {
+        ["q"] = "CloseView",
+        ["<CR>"] = "Select",
+        ["<C-t>"] = "SelectTab",
+        ["|"] = "SelectVSplit",
+        ["_"] = "SelectSplit",
+        ["-"] = "GotoParent",
+        ["="] = "GotoCwd",
+        ["."] = "GotoNode",
+        ["#"] = "CollapseAll",
+        ["<BS>"] = "CollapseNode",
+      },
+    },
+  },
+}
