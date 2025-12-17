@@ -18,3 +18,5 @@ vdirsyncer/config
 
 zed/prompts
 zed/conversations
+
+hypr/**/*.log
