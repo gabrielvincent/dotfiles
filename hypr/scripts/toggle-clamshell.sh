@@ -24,8 +24,10 @@ if [ "$laptop_disabled" = "true" ] || [ -z "$laptop_disabled" ]; then
     hyprctl keyword monitor "$LAPTOP_NAME,1920x1200@60,3840x0,1"
     notify-send "Display Mode" "Dual display enabled" -t 2000
 else
-    # Laptop is currently enabled, disable it (clamshell mod    echo "Enabling clamshell mode (Samsung only)"
+    # Laptop is currently enabled, disable it (clamshell mode)
+    echo "Enabling clamshell mode (Samsung only)"
     hyprctl keyword monitor "$SAMSUNG_NAME,3840x2160@60,0x0,1"
     hyprctl keyword monitor "$LAPTOP_NAME,disable"
+    hyprctl keyword dwindle:single_window_aspect_ratio "1 1.05"
     notify-send "Display Mode" "Clamshell mode" -t 2000
 fi
