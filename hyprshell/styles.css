@@ -1,51 +1,16 @@
 :root {
-  --border-color: rgba(83, 98, 92, 0.4);
-  --border-color-active: rgba(167, 192, 128, 0.9);
-  --bg-color: rgba(43, 51, 57, 0.8);
-  --bg-color-hover: rgba(64, 75, 82, 1);
+  --border-color: rgba(65, 72, 104, 0.6);
+  --border-color-active: rgba(122, 162, 247, 1);
+
+  --bg-color: rgba(26, 27, 38, 0.92);
+  --bg-color-hover: rgba(41, 46, 66, 1);
+
   --border-radius: 12px;
   --border-size: 3px;
   --border-style: solid;
-  --text-color: rgba(211, 198, 170, 1);
+
+  --text-color: rgba(192, 202, 245, 1);
+
   --window-padding: 2px;
+  --bg-window-color: rgba(30, 32, 48, 0.85);
 }
-
-.window {
-}
-
-.monitor {
-}
-
-.workspace {
-}
-
-.client {
-}
-
-.client-image {
-}
-
-.launcher {
-}
-
-.launcher-input {
-}
-
-.launcher-results {
-}
-
-.launcher-item {
-}
-
-.launcher-exec {
-}
-
-.launcher-key {
-}
-
-.launcher-plugins {
-}
-
-.launcher-plugin {
-}
-
