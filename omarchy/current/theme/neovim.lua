@@ -1,12 +1,9 @@
 return {
-  {
-    "kepano/flexoki-neovim",
-    priority = 1000,
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "flexoki-light",
-    },
-  },
+	{ "rose-pine/neovim", name = "rose-pine" },
+	{
+		"LazyVim/LazyVim",
+		opts = {
+			colorscheme = "rose-pine-dawn",
+		},
+	},
 }
