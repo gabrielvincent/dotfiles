@@ -3,35 +3,86 @@ return {
   opts = function(_, opts)
     opts.formatters_by_ft = opts.formatters_by_ft or {}
 
-    -- Function to check if prettier config exists
-    local function has_prettier_config()
-      local prettier_configs = {
-        ".prettierrc",
-        ".prettierrc.json",
-        ".prettierrc.js",
-        ".prettierrc.yaml",
-        ".prettierrc.yml",
-        "prettier.config.js",
-        "prettier.config.mjs",
-        "prettier.config.cjs",
-      }
-
-      for _, config in ipairs(prettier_configs) do
+    -- Function to check if a config file exists
+    local function has_config(config_files)
+      for _, config in ipairs(config_files) do
         if vim.fn.findfile(config, ".;" .. vim.fn.getcwd()) ~= "" then
           return true
         end
       end
-
       return false
     end
 
-    -- Conditional formatter function
+    -- Function to check package.json for a dependency
+    local function has_package_dep(package_name)
+      local package_json = vim.fn.findfile("package.json", ".;" .. vim.fn.getcwd())
+      if package_json == "" then
+        return false
+      end
+
+      local ok, decoded = pcall(vim.fn.json_decode, vim.fn.readfile(package_json))
+      if not ok then
+        return false
+      end
+
+      local deps = vim.tbl_extend("force", decoded.dependencies or {}, decoded.devDependencies or {})
+      return deps[package_name] ~= nil
+    end
+
+    -- Detect the best formatter for JS/TS projects
     local function js_formatter()
-      return has_prettier_config() and { "prettierd" } or { "biome", "biome-organize-imports" }
+      -- Priority 1: Check for config files (strongest signal)
+      if has_config({ "oxlintrc.json", ".oxlintrc.json", ".oxfmtrc.json" }) then
+        return { "oxfmt" }
+      end
+
+      if has_config({ "biome.json", "biome.jsonc" }) then
+        return { "biome", "biome-organize-imports" }
+      end
+
+      if
+        has_config({
+          ".prettierrc",
+          ".prettierrc.json",
+          ".prettierrc.js",
+          ".prettierrc.yaml",
+          ".prettierrc.yml",
+          "prettier.config.js",
+          "prettier.config.mjs",
+          "prettier.config.cjs",
+        })
+      then
+        return { "prettierd" }
+      end
+
+      -- Priority 2: Check package.json dependencies
+      if has_package_dep("oxlint") or has_package_dep("@oxc/oxlint") then
+        return { "oxfmt" }
+      end
+
+      if has_package_dep("@biomejs/biome") or has_package_dep("biome") then
+        return { "biome", "biome-organize-imports" }
+      end
+
+      if has_package_dep("prettier") then
+        return { "prettierd" }
+      end
+
+      -- Priority 3: Try fast formatters if available system-wide
+      if vim.fn.executable("oxfmt") == 1 then
+        return { "oxfmt" }
+      end
+
+      if vim.fn.executable("biome") == 1 then
+        return { "biome", "biome-organize-imports" }
+      end
+
+      return { "prettierd" }
     end
 
     opts.formatters_by_ft.javascript = js_formatter()
     opts.formatters_by_ft.typescript = js_formatter()
+    opts.formatters_by_ft.vue = js_formatter()
     opts.formatters_by_ft.json = js_formatter()
     opts.formatters_by_ft.jsonc = js_formatter()
     opts.formatters_by_ft.svelte = { "prettierd" }
