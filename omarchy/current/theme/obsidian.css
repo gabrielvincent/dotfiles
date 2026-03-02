@@ -30,8 +30,8 @@
   --interactive-accent-hover: #56949f;
 
   /* Muted text */
-  --text-muted: #9893a5;
-  --text-faint: #9893a5;
+  --text-muted: color-mix(in srgb, #575279 70%, transparent);
+  --text-faint: color-mix(in srgb, #575279 55%, transparent);
 
   /* Code */
   --code-normal: #d7827e;
