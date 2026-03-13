@@ -92,6 +92,7 @@ return {
     opts.formatters_by_ft.sql = { "sqlfluff" }
     opts.formatters_by_ft.go = { "golines" }
     opts.formatters_by_ft.crystal = { "crystal_fmt" }
+    opts.formatters_by_ft.python = { "ruff_organize_imports", "ruff_format" }
 
     -- Add formatter definitions
     opts.formatters = opts.formatters or {}
