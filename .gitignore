@@ -15,6 +15,7 @@
 !calcurse
 !vdirsyncer
 vdirsyncer/config
+!tmux
 
 zed/prompts
 zed/conversations
