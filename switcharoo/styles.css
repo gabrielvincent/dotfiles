@@ -1,0 +1,52 @@
+:root {
+  --border-color: rgba(110, 106, 134, 0.4);
+  --border-color-active: rgba(235, 188, 186, 0.9);
+
+  --bg-color: rgba(25, 23, 36, 0.8);
+  --bg-color-hover: rgba(38, 35, 58, 1);
+  --bg-window-color: rgba(25, 23, 36, 0.9);
+
+  --border-radius: 0;
+  --border-size: 3px;
+  --border-style: solid;
+
+  --text-color: rgba(224, 222, 244, 1);
+
+  --window-padding: 2px;
+}
+
+.window {
+}
+
+.monitor {
+  background: rgba(25, 23, 36, 0.9);
+}
+
+.workspace {
+  background: rgba(31, 29, 46, 0.4);
+}
+
+.workspace.active {
+  border-color: rgba(235, 188, 186, 0.6);
+  background: rgba(38, 35, 58, 0.6);
+}
+
+.workspace.special {
+  background: rgba(49, 116, 143, 0.1);
+}
+
+.client {
+  background: rgba(31, 29, 46, 0.3);
+}
+
+.client.active {
+  border-color: rgba(235, 188, 186, 0.9);
+  background: rgba(38, 35, 58, 0.5);
+}
+
+.client:hover {
+  background: rgba(56, 52, 82, 0.5);
+}
+
+.client-image {
+}

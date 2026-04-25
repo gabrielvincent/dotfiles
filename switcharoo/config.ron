@@ -1,0 +1,18 @@
+// Switcharoo Configuration
+(
+    version: 5,
+    windows: (
+        scale: 3.0,
+        items_per_row: 5,
+        switch: (
+            modifier: "alt",
+            key: "Tab",
+            filter_by: [],
+            switch_workspaces: true,
+            exclude_workspaces: "special:.*",
+            kill_key: 'w',
+            show_workspace_number: false,
+        ),
+        switch_2: None,
+    ),
+)
