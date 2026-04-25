@@ -16,6 +16,7 @@
 !vdirsyncer
 vdirsyncer/config
 !tmux
+!switcharoo
 
 zed/prompts
 zed/conversations
