@@ -2,6 +2,19 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
+vim.filetype.add({
+  extension = {
+    ecr = "eruby",
+  },
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*.ecr",
+  callback = function()
+    vim.bo.filetype = "eruby.html"
+  end,
+})
+
 -- Set up underline color for diagnostic
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*", -- Apply to all colorschemes
