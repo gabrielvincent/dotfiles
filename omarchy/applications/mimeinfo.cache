@@ -1,0 +1,25 @@
+[MIME Cache]
+application/rdf+xml=glide.desktop;
+application/rss+xml=glide.desktop;
+application/vnd.mozilla.xul+xml=glide.desktop;
+application/x-shellscript=nvim.desktop;
+application/xhtml+xml=glide.desktop;
+application/xml=glide.desktop;
+text/english=nvim.desktop;
+text/html=glide.desktop;
+text/plain=nvim.desktop;
+text/x-c=nvim.desktop;
+text/x-c++=nvim.desktop;
+text/x-c++hdr=nvim.desktop;
+text/x-c++src=nvim.desktop;
+text/x-chdr=nvim.desktop;
+text/x-csrc=nvim.desktop;
+text/x-java=nvim.desktop;
+text/x-makefile=nvim.desktop;
+text/x-moc=nvim.desktop;
+text/x-pascal=nvim.desktop;
+text/x-tcl=nvim.desktop;
+text/x-tex=nvim.desktop;
+text/xml=glide.desktop;
+x-scheme-handler/http=glide.desktop;
+x-scheme-handler/https=glide.desktop;
