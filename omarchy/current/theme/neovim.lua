@@ -1,12 +1,12 @@
 return {
   {
-    "bjarneo/white.nvim",
+    "kepano/flexoki-neovim",
     priority = 1000,
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "white",
+      colorscheme = "flexoki-light",
     },
   },
 }
