@@ -96,6 +96,7 @@ return {
     opts.formatters_by_ft["eruby.html"] = { "erb_format" }
     opts.formatters_by_ft.python = { "ruff_organize_imports", "ruff_format" }
     opts.formatters_by_ft.markdown = {}
+    opts.formatters_by_ft.toml = { "taplo" }
 
     -- Add formatter definitions
     opts.formatters = opts.formatters or {}
