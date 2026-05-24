@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# User override for Omarchy's power-profile behavior:
+# keep AC and battery on power-saver unless that profile is unavailable.
+
+mapfile -t profiles < <(powerprofilesctl list | awk '/^\s*[* ]\s*[a-zA-Z0-9\-]+:$/ { gsub(/^[*[:space:]]+|:$/,""); print }')
+
+if [[ " ${profiles[*]} " == *" power-saver "* ]]; then
+    exec powerprofilesctl set power-saver
+fi
+
+if [[ " ${profiles[*]} " == *" balanced "* ]]; then
+    exec powerprofilesctl set balanced
+fi
+
+if [[ ${#profiles[@]} -gt 0 ]]; then
+    exec powerprofilesctl set "${profiles[0]}"
+fi
+
+exit 0

@@ -49,5 +49,4 @@ bind=,escape,exec,hyprctl keyword cursor:inactive_timeout 3; hyprctl keyword cur
 
 bind = , escape, submap, reset
 
-
 submap = reset
