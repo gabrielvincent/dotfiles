@@ -30,11 +30,32 @@ return {
       desc = "LiFFFe grep",
     },
     {
+      "<leader>sg",
+      function()
+        require("fff").live_grep()
+      end,
+      desc = "Grep (fff)",
+    },
+    {
+      "<leader>/",
+      function()
+        require("fff").live_grep()
+      end,
+      desc = "Grep (fff)",
+    },
+    {
       "fz",
       function()
         require("fff").live_grep({ grep = { modes = { "fuzzy", "plain" } } })
       end,
       desc = "Live fffuzy grep",
+    },
+    {
+      "<leader>sG",
+      function()
+        require("fff").live_grep({ grep = { modes = { "fuzzy", "plain" } } })
+      end,
+      desc = "Fuzzy Grep (fff)",
     },
     {
       "fc",

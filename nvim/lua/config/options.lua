@@ -94,5 +94,3 @@ vim.diagnostic.config({
     border = "rounded",
   },
 })
-
-vim.g.lazyvim_picker = "fzf"
