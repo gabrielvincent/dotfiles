@@ -39,7 +39,7 @@ bindd = SUPER SHIFT, L, Move window to next workspace, movetoworkspace, e+1
 bindd = SUPER SHIFT, E, Move window to next empty workspace, movetoworkspace, empty
 
 # Toggle split
-bindd = SUPER SHIFT, backslash, Toggle split, layoutmsg, togglesplit # dwindle
+# bindd = SUPER SHIFT, backslash, Toggle split, togglesplit, # dwindle
 
 # Switch keyboard layout
 bind = SUPER ALT, K, exec, hyprctl switchxkblayout all next
