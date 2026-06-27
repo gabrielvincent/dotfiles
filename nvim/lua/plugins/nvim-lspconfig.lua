@@ -9,6 +9,8 @@ return {
           { "gr", vim.lsp.buf.references, desc = "References", nowait = true },
           { "gI", vim.lsp.buf.implementation, desc = "Goto Implementation" },
           { "gy", vim.lsp.buf.type_definition, desc = "Goto T[y]pe Definition" },
+          { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols", has = "documentSymbol" },
+          { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols", has = "workspace/symbols" },
         },
       },
       crystalline = {

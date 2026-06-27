@@ -4,7 +4,6 @@ return {
     opts.dashboard = { enabled = true }
     opts.scroll = { enabled = false }
     opts.explorer = { enabled = false }
-    opts.picker = { enabled = false }
   end,
   keys = {
     { "<leader>fe", false },
