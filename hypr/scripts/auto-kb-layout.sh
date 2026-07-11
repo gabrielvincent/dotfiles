@@ -12,7 +12,7 @@ handle() {
         *whatsapp* | *WhatsApp* | *libreoffice-writer*)
             hyprctl switchxkblayout all $KB_LAYOUT_US_INTL
             ;;
-        *ghostty* | *slack* | *Slack* | *claude*)
+        *ghostty* | *foot* | *slack* | *Slack* | *claude*)
             hyprctl switchxkblayout all $KB_LAYOUT_US
             ;;
         esac
