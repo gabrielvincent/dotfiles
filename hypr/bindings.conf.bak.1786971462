@@ -32,9 +32,6 @@ bind = SUPER, J, movefocus, d
 bind = SUPER, K, movefocus, u
 bind = SUPER, L, movefocus, r
 
-# Unbind the keybinding to create groups
-unbind = SUPER, G
-
 # Move windows across workspaces
 bindd = SUPER SHIFT, H, Move window to previous workspace, movetoworkspace, e-1
 bindd = SUPER SHIFT, L, Move window to next workspace, movetoworkspace, e+1
