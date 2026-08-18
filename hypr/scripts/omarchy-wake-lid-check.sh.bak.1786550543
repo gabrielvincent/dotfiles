@@ -4,9 +4,6 @@ if cat /proc/acpi/button/lid/LID/state | grep -q "closed"; then
     hyprctl keyword monitor eDP-1, disable
     omarchy-brightness-keyboard restore
 else
-    # Lid is open - re-enable the internal display in case it was
-    # disabled by the closed branch on a previous wake.
-    hyprctl keyword monitor eDP-1,preferred,auto,1
     omarchy-brightness-display on
     omarchy-brightness-keyboard restore
 fi
