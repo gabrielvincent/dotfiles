@@ -85,7 +85,7 @@ return {
     opts.formatters_by_ft.vue = js_formatter()
     opts.formatters_by_ft.json = js_formatter()
     opts.formatters_by_ft.jsonc = js_formatter()
-    opts.formatters_by_ft.svelte = { "prettierd" }
+    opts.formatters_by_ft.svelte = js_formatter()
     opts.formatters_by_ft.liquid = { "prettierd" }
     opts.formatters_by_ft.templ = { "templ" }
     opts.formatters_by_ft.hcl = { "hclfmt" }
